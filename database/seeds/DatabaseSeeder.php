@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
     	User::truncate();
     	SmsNumber::truncate();
 
-    	$cantidadUsuarios = 100;
-    	$cantidadSms = 200;
+    	$cantidadUsuarios = 5;
+    	$cantidadSms = 5;
 
     	factory(User::class, $cantidadUsuarios)->create();
     	factory(SmsNumber::class, $cantidadSms)->create();

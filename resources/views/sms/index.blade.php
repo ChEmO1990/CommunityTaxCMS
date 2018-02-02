@@ -26,6 +26,7 @@
                         </table>
                 </div>
             </div>
+            {{ link_to_route('sms.create', 'Add new Sms', null, ['class'=>'btn btn-primary']) }}
         </div>
     </div>
 </div>

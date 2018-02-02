@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\SmsNumber;
+use App\Http\Requests\SmsNumberRequest;
 use Illuminate\Http\Request;
 
 class SmsNumberController extends Controller
@@ -25,7 +26,7 @@ class SmsNumberController extends Controller
      */
     public function create()
     {
-        //
+        return view('sms.create');
     }
 
     /**
@@ -34,9 +35,10 @@ class SmsNumberController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SmsNumberRequest $request)
     {
-        //
+        SmsNumber::create($request->all());
+        return redirect()->route('sms.index')->with('message', 'item added');
     }
 
     /**
