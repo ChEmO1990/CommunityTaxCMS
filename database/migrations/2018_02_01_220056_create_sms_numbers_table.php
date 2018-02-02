@@ -16,8 +16,8 @@ class CreateSmsNumbersTable extends Migration
         Schema::create('sms_numbers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('sms_number');
-            $table->string('assign_to');
-            $table->string('comment');
+            $table->string('assign_to')->nullable();
+            $table->string('comment')->nullable();
             $table->timestamps();
         });
     }

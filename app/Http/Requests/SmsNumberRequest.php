@@ -24,8 +24,7 @@ class SmsNumberRequest extends FormRequest
     public function rules()
     {
         return [
-            'sms_number' => 'required',
-            'assign_to' => 'required'
+            'sms_number' => 'required'
         ];
     }
 }

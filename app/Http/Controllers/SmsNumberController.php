@@ -15,7 +15,7 @@ class SmsNumberController extends Controller
      */
     public function index()
     {
-        $my_list = SmsNumber::all();
+        $my_list = SmsNumber::paginate(15);
         return view('sms.index', compact('my_list'));
     }
 
