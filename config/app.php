@@ -141,6 +141,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        Propaganistas\LaravelPhone\PhoneServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
