@@ -21,3 +21,11 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\SmsNumber::class, function (Faker $faker) {
+    return [
+        'sms_number' => $faker->phoneNumber,
+        'assign_to' => $faker->firstNameMale,
+        'comment' => $faker->word, // secret
+    ];
+});
