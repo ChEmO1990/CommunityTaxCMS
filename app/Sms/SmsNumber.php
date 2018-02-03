@@ -11,6 +11,6 @@ class SmsNumber extends Model
 
 	public function scopeSearch($query, $s) {
 		return $query
-		->where('sms_numbers.assign_to', 'LIKE', '%' .$s. '%');
+		->where('sms_numbers.assign_to', 'LIKE', "%" .$s. "%");
 	}
 }
