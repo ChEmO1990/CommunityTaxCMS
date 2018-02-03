@@ -24,7 +24,7 @@ class SmsNumberRequest extends FormRequest
     public function rules()
     {
         return [
-            'sms_number' => 'phone:US'
+            'sms_number' => 'required|digits:10'
         ];
     }
 }
