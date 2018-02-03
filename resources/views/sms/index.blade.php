@@ -46,7 +46,14 @@
                         </table>
                 </div>
             </div>
-       
+            @if(empty($s))
+                {{ $my_list->links() }}
+                {{ var_dump($my_list) }}
+
+            @else
+                {{ $my_list->appends(['s' => $s])->links() }}
+                {{ var_dump($my_list) }}
+            @endif
         </div>
     </div>
 </div>
