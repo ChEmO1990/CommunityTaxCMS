@@ -26,10 +26,19 @@ class SmsNumberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $my_list = SmsNumber::paginate(20);
-        return view('sms.index', compact('my_list'));
+        $input = $request->input('s');
+
+        if(empty($input) ) {
+            $my_list = SmsNumber::paginate(20);
+            return view('sms.index', compact('my_list'));
+        } else {
+            $my_list = SmsNumber::latest()
+            ->search($input)
+            ->paginate(20);
+            return view('sms.index', compact('my_list', 'input'));
+        }
     }
 
     /**

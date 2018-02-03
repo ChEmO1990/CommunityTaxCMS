@@ -10,10 +10,17 @@
                         <div class="panel-heading" align="center">
                             <a href="url">{{ link_to_route('sms.create', 'Add Number', null) }}</a>
                         </div>
-                        {!! Form::open(['action' => ['Sms\SmsNumberController@show', ' '], 'method'=>'GET']) !!}
-                        {{ Form::text('keyword', null, array('placeholder'=>'Search')) }}
-                        {{ Form::submit('Search', array('class' => 'btn btn-primary btn-sm')) }}
-                        {{ Form::close() }}
+                        
+                        <form action="{{ route('sms.index') }}" method="get" class="form-inline">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="s" placeholder="Search" value=" {{ isset($s) ? $s : '' }}">
+                            </div>
+
+                            <div class="form-group">
+                                <button class="btn btn-primary" type="submit">Search</button>
+                            </div>
+
+                        </form>
                 </div>
                 <div class="panel-body">
                     <table class="table">
@@ -39,7 +46,11 @@
                         </table>
                 </div>
             </div>
-            {{ $my_list->links() }}
+            @if(empty($s))
+                {{ $my_list->links() }}
+            @else
+                {{ $my_list->appends(['s' => $s])->links() }}
+            @endif
         </div>
     </div>
 </div>
