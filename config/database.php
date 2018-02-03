@@ -1,18 +1,5 @@
 <?php
 
-if ($url = env('CLEARDB_DATABASE_URL', false)) {
-    $parts = parse_url($url);
-    $host = $parts["host"];
-    $username = $parts["user"];
-    $password = $parts["pass"];
-    $database = substr($parts["path"], 1);
-} else {
-    $host = env('DB_HOST', 'localhost');
-    $username = env('DB_USERNAME', 'forge');
-    $password = env('DB_PASSWORD', '');
-    $database = env('DB_DATABASE', 'forge');
-}
-
 return [
 
     /*
@@ -51,11 +38,11 @@ return [
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
         ],
-
+        
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'us-cdbr-iron-east-05.cleardb.net'),
-            'port' => env('DB_PORT', '5432'),
+            'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'heroku_2bd5e17017be190'),
             'username' => env('DB_USERNAME', 'b138ad6f67194e'),
             'password' => env('DB_PASSWORD', '1b2645fc'),
@@ -67,6 +54,7 @@ return [
             'engine' => null,
         ],
 
+/*
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', 'ec2-54-221-198-206.compute-1.amazonaws.com'),
@@ -79,7 +67,7 @@ return [
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],
-
+*/
         'sqlsrv' => [
             'driver' => 'sqlsrv',
             'host' => env('DB_HOST', 'localhost'),
