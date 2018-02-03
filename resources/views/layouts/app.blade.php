@@ -43,10 +43,9 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            
                         @else
-                            <li><a href="{{ route('sms.index') }}">Dashboard</a></li>
+                            <li><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
                             <li><a href="{{ route('register') }}">Hires</a></li>
                             <li><a href="{{ route('register') }}">Removal</a></li>
                             <li><a href="{{ route('sms.index') }}">Sms Numbers</a></li>

@@ -692,16 +692,16 @@
         },
         {
             "name": "laravel/homestead",
-            "version": "v7.0.1",
+            "version": "v7.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/homestead.git",
-                "reference": "0d0082e8315fb4e9cbfe35bbdd7fe3113d41e1a8"
+                "reference": "70e975c5d64c027a1f2b16831bf3aa08384a1992"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/homestead/zipball/0d0082e8315fb4e9cbfe35bbdd7fe3113d41e1a8",
-                "reference": "0d0082e8315fb4e9cbfe35bbdd7fe3113d41e1a8",
+                "url": "https://api.github.com/repos/laravel/homestead/zipball/70e975c5d64c027a1f2b16831bf3aa08384a1992",
+                "reference": "70e975c5d64c027a1f2b16831bf3aa08384a1992",
                 "shasum": ""
             },
             "require": {
@@ -738,7 +738,7 @@
                 }
             ],
             "description": "A virtual machine for web artisans.",
-            "time": "2017-12-03T15:18:55+00:00"
+            "time": "2018-01-11T13:30:41+00:00"
         },
         {
             "name": "laravel/tinker",

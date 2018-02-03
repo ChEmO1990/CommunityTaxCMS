@@ -8,7 +8,7 @@
                 <div class="panel-heading">Update Sms Number</div>
 
                 <div class="panel-body">
-                    {!! Form::open(['action' => ['SmsNumberController@update', $sms->id], 'method'=>'POST']) !!}
+                    {!! Form::open(['action' => ['Sms\SmsNumberController@update', $sms->id], 'method'=>'POST']) !!}
                         <div class="form-group">
                             {!! Form::label('sms_number', 'Enter number phone') !!} 
                             {!! Form::text('sms_number', $sms->sms_number, ['class'=>'form-control']) !!}  

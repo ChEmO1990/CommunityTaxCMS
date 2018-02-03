@@ -1,13 +1,26 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Sms;
 
-use App\SmsNumber;
-use App\Http\Requests\SmsNumberRequest;
+use App\SmsNumber\SmsNumber;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
+use App\Http\Requests\SmsNumberRequest;
 
 class SmsNumberController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +28,7 @@ class SmsNumberController extends Controller
      */
     public function index()
     {
-        $my_list = SmsNumber::paginate(15);
+        $my_list = SmsNumber::paginate(20);
         return view('sms.index', compact('my_list'));
     }
 
@@ -49,8 +62,12 @@ class SmsNumberController extends Controller
      */
     public function show($id)
     {
-        //
+        $keyword = Input::get('keyword');
+        $my_list = SmsNumber::where('assign_to', 'LIKE', '%'.$keyword.'%')->paginate(15);
+        return view('sms.index', compact('my_list'));
     }
+
+   
 
     /**
      * Show the form for editing the specified resource.

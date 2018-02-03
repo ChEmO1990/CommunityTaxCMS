@@ -6,7 +6,12 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading"> <h3 align="center">Phone Numbers List</h3> </div>
-
+                    <div class="panel-heading">
+                        {!! Form::open(['action' => ['Sms\SmsNumberController@show', ' '], 'method'=>'GET']) !!}
+                        {{ Form::text('keyword', null, array('placeholder'=>'Search')) }}
+                        {{ Form::submit('Search', array('class' => 'btn btn-success')) }}
+                        {{ Form::close() }}
+                </div>
                 <div class="panel-body">
                     <table class="table">
                         <tr>
@@ -18,7 +23,7 @@
                                 <td>{{ $sms->sms_number}} </td>
                                 <td>{{ $sms->assign_to}} </td>
                                 <td>
-                                    {!! Form::open(['action' => ['SmsNumberController@destroy', $sms->id], 'method'=>'POST', 'class' => 'pull-right']) !!}
+                                    {!! Form::open(['action' => ['Sms\SmsNumberController@destroy', $sms->id], 'method'=>'POST', 'class' => 'pull-right']) !!}
                                         {{ link_to_route('sms.edit', 'Edit', [$sms->id], ['class'=>'btn btn-primary']) }}
                                     |
                                     {!! Form::hidden('_method', 'DELETE') !!}
@@ -29,7 +34,6 @@
                             <tr>
                             @endforeach
                         </table>
-
                         {{ $my_list->links() }}
                 </div>
             </div>
