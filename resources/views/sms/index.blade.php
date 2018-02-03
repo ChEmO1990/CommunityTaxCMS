@@ -6,10 +6,13 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading"> <h3 align="center">Phone Numbers List</h3> </div>
-                    <div class="panel-heading">
+                    <div class="panel-heading" align="right">
+                        <div class="panel-heading" align="center">
+                            <a href="url">{{ link_to_route('sms.create', 'Add Number', null) }}</a>
+                        </div>
                         {!! Form::open(['action' => ['Sms\SmsNumberController@show', ' '], 'method'=>'GET']) !!}
                         {{ Form::text('keyword', null, array('placeholder'=>'Search')) }}
-                        {{ Form::submit('Search', array('class' => 'btn btn-success')) }}
+                        {{ Form::submit('Search', array('class' => 'btn btn-primary btn-sm')) }}
                         {{ Form::close() }}
                 </div>
                 <div class="panel-body">
@@ -24,20 +27,19 @@
                                 <td>{{ $sms->assign_to}} </td>
                                 <td>
                                     {!! Form::open(['action' => ['Sms\SmsNumberController@destroy', $sms->id], 'method'=>'POST', 'class' => 'pull-right']) !!}
-                                        {{ link_to_route('sms.edit', 'Edit', [$sms->id], ['class'=>'btn btn-primary']) }}
+                                        {{ link_to_route('sms.edit', 'Edit', [$sms->id], ['class'=>'btn btn-primary btn-sm']) }}
                                     |
                                     {!! Form::hidden('_method', 'DELETE') !!}
-                                    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                    {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
                                     {!! Form::close() !!}
 
                                 </td>
                             <tr>
                             @endforeach
                         </table>
-                        {{ $my_list->links() }}
                 </div>
             </div>
-            {{ link_to_route('sms.create', 'Create', null, ['class'=>'btn btn-success']) }}
+            {{ $my_list->links() }}
         </div>
     </div>
 </div>

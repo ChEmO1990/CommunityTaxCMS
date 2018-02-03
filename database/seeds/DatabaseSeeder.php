@@ -1,7 +1,7 @@
 <?php
 
 use App\User;
-use App\SmsNumber;
+use App\SmsNumber\SmsNumber;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
     	SmsNumber::truncate();
 
     	$cantidadUsuarios = 5;
-    	$cantidadSms = 5;
+    	$cantidadSms = 400;
 
     	factory(User::class, $cantidadUsuarios)->create();
     	factory(SmsNumber::class, $cantidadSms)->create();

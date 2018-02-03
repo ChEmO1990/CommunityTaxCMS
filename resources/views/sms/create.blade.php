@@ -5,27 +5,27 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Sms Numbers</div>
+                <div class="panel-heading"><h3 align="center">Sms Number</h3></div>
 
                 <div class="panel-body">
                     {!! Form::open(array('route'=>'sms.store')) !!}
                         <div class="form-group">
-                            {!! Form::label('sms_number', 'Enter number phone') !!} 
+                            {!! Form::label('sms_number', 'Phone number') !!} 
                             {!! Form::text('sms_number', null, ['class'=>'form-control']) !!}  
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('assign_to', 'Enter user name') !!} 
+                            {!! Form::label('assign_to', 'Assign to') !!} 
                             {!! Form::text('assign_to', null, ['class'=>'form-control']) !!}
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('comment', 'Enter user name') !!} 
+                            {!! Form::label('comment', 'Comment') !!} 
                             {!! Form::textarea('comment', null, ['class'=>'form-control']) !!}
                         </div>
 
                         <div class="form-group">
-                            {!! Form::button('Create phone number', ['type'=>'submit', 'class'=>'btn btn-primary']) !!} 
+                            {!! Form::button('Create', ['type'=>'submit', 'class'=>'btn btn-primary btn-block']) !!} 
                         </div>
 
                         {!! Form::close() !!}

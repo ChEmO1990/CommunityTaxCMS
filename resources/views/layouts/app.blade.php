@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'CommunityTax') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -29,10 +29,10 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'CommunityTax') }}
                     </a>
                 </div>
-
+                
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
@@ -43,12 +43,10 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
-                            
                         @else
-                            <li><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
-                            <li><a href="{{ route('register') }}">Hires</a></li>
-                            <li><a href="{{ route('register') }}">Removal</a></li>
-                            <li><a href="{{ route('sms.index') }}">Sms Numbers</a></li>
+                            <li class="{{ Request::is('dashboard')? "active":""}}"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
+
+                            <li class="{{ Request::is('sms')? "active":""}}"><a href="{{ route('sms.index') }}">Sms Numbers</a></li>
 
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">

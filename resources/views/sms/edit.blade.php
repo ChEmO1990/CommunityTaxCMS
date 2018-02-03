@@ -5,27 +5,27 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Update Sms Number</div>
+                <div class="panel-heading"><h3 align="center">Update Sms Number</h3></div>
 
                 <div class="panel-body">
                     {!! Form::open(['action' => ['Sms\SmsNumberController@update', $sms->id], 'method'=>'POST']) !!}
                         <div class="form-group">
-                            {!! Form::label('sms_number', 'Enter number phone') !!} 
+                            {!! Form::label('sms_number', 'Phone number') !!} 
                             {!! Form::text('sms_number', $sms->sms_number, ['class'=>'form-control']) !!}  
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('assign_to', 'Enter user name') !!} 
+                            {!! Form::label('assign_to', 'Assign to') !!} 
                             {!! Form::text('assign_to', $sms->assign_to, ['class'=>'form-control']) !!}
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('comment', 'Enter user name') !!} 
+                            {!! Form::label('comment', 'Comment') !!} 
                             {!! Form::textarea('comment', $sms->comment, ['class'=>'form-control']) !!}
                         </div>
 
                         <div class="form-group">
-                            {!! Form::button('Update', ['type'=>'submit', 'class'=>'btn btn-primary']) !!} 
+                            {!! Form::button('Update', ['type'=>'submit', 'class'=>'btn btn-primary btn-block']) !!} 
                         </div>
 
                         {!! Form::hidden('_method', 'PUT') !!}

@@ -1,5 +1,7 @@
 <?php
 
+use App\User;
+use App\SmsNumber\SmsNumber;
 use Faker\Generator as Faker;
 
 /*
@@ -13,7 +15,7 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
+$factory->define(User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
@@ -22,7 +24,7 @@ $factory->define(App\User::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(App\SmsNumber::class, function (Faker $faker) {
+$factory->define(SmsNumber::class, function (Faker $faker) {
     return [
         'sms_number' => $faker->phoneNumber,
         'assign_to' => $faker->firstNameMale,

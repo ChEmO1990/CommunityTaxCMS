@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\SmsNumber\SmsNumber;
 use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
@@ -23,6 +24,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard.index');
+        $my_list = SmsNumber::all();
+        return view('dashboard.index', compact('my_list'));
     }
 }
