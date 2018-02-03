@@ -18,7 +18,7 @@ class SmsNumberController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('guest');
     }
     
     /**
@@ -60,9 +60,9 @@ class SmsNumberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        $keyword = Input::get('keyword');
+        $keyword = Input::get(urldecode('keyword'));
         $my_list = SmsNumber::where('assign_to', 'LIKE', '%'.$keyword.'%')->paginate(15);
         return view('sms.index', compact('my_list'));
     }
