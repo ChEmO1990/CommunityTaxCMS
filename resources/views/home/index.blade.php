@@ -90,6 +90,7 @@
                     <a href="https://appt.communitytax.com/admin">Calendar</a>
                     <a href="http://192.168.2.43:9090/login.jsp">Spark</a>
                     <a href="http://progress.ctaxrelief.com/ctaxrelief/">Progress Monitor</a>
+                    <a href="https://access.paylocity.com/">Paylocity</a>
                 </div>
             </div>
         </div>
