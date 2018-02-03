@@ -43,7 +43,6 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
-                        <li class="{{ Request::is('register')? "active":""}}"><a href="{{ route('register') }}">Register</a></li>
                         @else
                             <li class="{{ Request::is('dashboard')? "active":""}}"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
 
