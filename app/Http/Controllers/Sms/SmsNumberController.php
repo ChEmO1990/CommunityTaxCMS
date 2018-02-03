@@ -61,9 +61,9 @@ class SmsNumberController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show()
-    {
-        $keyword = Input::get(urldecode('keyword'));
-        $my_list = SmsNumber::where('assign_to', 'LIKE', '%'.$keyword.'%')->paginate(15);
+    { 
+        $keyword = Input::get(urlencode('keyword'));
+        $my_list = SmsNumber::where('assign_to', 'LIKE', '%'.$keyword.'%')->paginate(20);
         return view('sms.index', compact('my_list'));
     }
 
