@@ -13,7 +13,7 @@
                         
                         <form action="{{ route('sms.index') }}" method="get" class="form-inline">
                             <div class="form-group">
-                                <input type="text" class="form-control" name="s" placeholder="Search" value=" {{ isset($s) ? $s : '' }}">
+                                <input type="text" class="form-control" name="s" placeholder="Keyword">
                             </div>
 
                             <div class="form-group">
