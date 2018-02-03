@@ -83,11 +83,13 @@
 
                 <div class="links">
                     <a href="https://ctr.logics.com/Login.aspx?logout=newlogin&ReturnUrl=/default.aspx">Logics</a>
+                    <a href="https://mycallcenter.3ccloud.com/ls/static/index.html">3C Logic</a>
                     <a href="http://admin.phonesystem.ctaxrelief.com/cti/">PhoneSystem</a>
                     <a href="http://faxes.ctaxrelief.com/">Hylafax</a>
-                    <a href="https://eclipse.docstar.com/Proxy/Login">DocStar</a>
+                    <a href="https://eclipse.docstar.com/Proxy/Login">Eclipse</a>
                     <a href="https://appt.communitytax.com/admin">Calendar</a>
                     <a href="http://192.168.2.43:9090/login.jsp">Spark</a>
+                    <a href="http://progress.ctaxrelief.com/ctaxrelief/">Progress Monitor</a>
                 </div>
             </div>
         </div>
