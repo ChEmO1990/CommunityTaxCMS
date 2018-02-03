@@ -32,7 +32,7 @@ class SmsNumberController extends Controller
 
         if(empty($input) ) {
             $my_list = SmsNumber::paginate(20);
-            return view('sms.index', compact('my_list', 'input'));
+            return view('sms.index', compact('my_list'));
         } else {
             $my_list = SmsNumber::latest()
             ->search($input)
