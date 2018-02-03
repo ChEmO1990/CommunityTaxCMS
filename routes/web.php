@@ -1058,18 +1058,4 @@ foreach($items as $item) {
 	$sms->save();
 	var_dump($sms);
 }
-
-$anselmo = new User();
-$anselmo->name = "Anselmo Hernandez";
-$anselmo->email = "anhernandez@communitytax.com";
-$anselmo->password = "java3098";
-$anselmo->save();
-var_dump($anselmo);
-
-$erick = new User();
-$erick->name = "Erick Santana";
-$erick->email = "esantana@communitytax.com";
-$erick->password = "esantana";
-$erick->save();
-var_dump($erick);
 });
