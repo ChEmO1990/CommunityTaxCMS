@@ -21,7 +21,11 @@
                                 <img src="http://placehold.it/350x150">
                 <div class="caption">
                     <h3>{{ $my_list->count() }} telephone numbers in our records</h2>
-                    <p class="flex-text text-muted">The most recent record found is {{ $my_list->last()->assign_to }}</p>
+                        @if( !empty($my_list->last()->assign_to) )
+                            <p class="flex-text text-muted">The most recent record found is {{ $my_list->last()->assign_to }}</p>
+                        @else
+                    <p class="flex-text text-muted">There are no records in the database yet</p>
+                        @endif
                     <p>
                         <a class="{{ Request::is('sms')? "active":""}}"><a href="{{ route('sms.index') }}">See all records </a></a>
                     </p>
