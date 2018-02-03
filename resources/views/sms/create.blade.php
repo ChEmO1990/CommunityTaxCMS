@@ -20,8 +20,26 @@
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('comment', 'Comment') !!} 
-                            {!! Form::textarea('comment', null, ['class'=>'form-control']) !!}
+                            {!! Form::label('sms_number', 'Phone number') !!} 
+                            {!! Form::text('sms_number', null, ['class'=>'form-control']) !!}  
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('assign_to', 'Assign to') !!} 
+                            {!! Form::text('assign_to', null, ['class'=>'form-control']) !!}
+                        </div>
+
+
+                        <div class="form-group">
+                            {!! Form::date('name', \Carbon\Carbon::now()) !!} 
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::date('name', \Carbon\Carbon::now()) !!} 
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::email('Hola', 'fjksjfksfj, $attributes = array()) !!} 
                         </div>
 
                         <div class="form-group">

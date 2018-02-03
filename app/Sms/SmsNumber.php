@@ -10,7 +10,9 @@ class SmsNumber extends Model
 	protected $table = 'sms_numbers';
 
 	public function scopeSearch($query, $s) {
-		return $query->where('sms_numbers.assign_to', 'like', '%' .$s. '%')
+		$temp = $query->where('sms_numbers.assign_to', 'like', '%' .$s. '%')
 			->orWhere('sms_numbers.sms_number', 'like', '%' .$s. '%');
+			info($temp->toSql());
+			return $temp;
 	}
 }
