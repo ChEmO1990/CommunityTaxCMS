@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\SmsNumber\SmsNumber;
+use App\Sms\SmsNumber;
 use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
@@ -13,7 +13,7 @@ class DashboardController extends Controller
      * @return void
      */
     public function __construct()
-    {
+    
         $this->middleware('auth');
     }
 

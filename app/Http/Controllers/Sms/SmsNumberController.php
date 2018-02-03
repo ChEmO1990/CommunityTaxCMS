@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Sms;
 
-use App\SmsNumber\SmsNumber;
+use App\Sms\SmsNumber;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
