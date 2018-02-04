@@ -60,7 +60,8 @@ class SmsNumberController extends Controller
      */
     public function edit($id)
     {
-        //
+        $sms = SmsNumber::find($id);
+        return view('sms.edit')->with('sms', $sms);
     }
 
     /**
@@ -72,7 +73,16 @@ class SmsNumberController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'sms_number' => 'phone:US'
+        ]);
+
+        $sms = SmsNumber::find($id);
+        $sms->sms_number = $request->input('sms_number');
+        $sms->assign_to = $request->input('assign_to');
+        $sms->comment = $request->input('comment');
+        $sms->save();
+        return redirect('sms')->with('success', 'Updated ok');
     }
 
     /**
@@ -83,6 +93,8 @@ class SmsNumberController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $sms = SmsNumber::find($id);
+        $sms->delete();
+        return redirect('sms')->with('success', 'Post Rmoved');
     }
 }
