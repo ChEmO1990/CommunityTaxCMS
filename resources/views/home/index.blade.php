@@ -82,12 +82,12 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Logics</a>
-                    <a href="https://laracasts.com">3C Logics</a>
-                    <a href="https://laravel-news.com">PhoneSys</a>
-                    <a href="https://forge.laravel.com">Spark</a>
-                    <a href="https://github.com/laravel/laravel">HyFax</a>
-                    <a href="https://github.com/laravel/laravel">DocStar</a>
+                    <a href="https://ctr.logics.com/Login.aspx?logout=newlogin&ReturnUrl=/default.aspx">Logics</a>
+                    <a href="http://admin.phonesystem.ctaxrelief.com/cti/">PhoneSystem</a>
+                    <a href="http://faxes.ctaxrelief.com/">Hylafax</a>
+                    <a href="https://eclipse.docstar.com/Proxy/Login">DocStar</a>
+                    <a href="https://appt.communitytax.com/admin">Calendar</a>
+                    <a href="http://192.168.2.43:9090/login.jsp">Spark</a>
                 </div>
             </div>
         </div>
