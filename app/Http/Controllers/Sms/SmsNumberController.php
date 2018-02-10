@@ -39,7 +39,7 @@ class SmsNumberController extends Controller
             ->search($input)
             ->paginate(20);
             return view('sms.index', compact('my_list', 'input'))->with('page_title', 'List of Telephone Numbers')
-                                         ->with('page_description', 'You can create, remove and edit any number phone.');;
+                                         ->with('page_description', 'You can create, remove and edit any number phone.');
         }
     }
 
@@ -50,7 +50,8 @@ class SmsNumberController extends Controller
      */
     public function create()
     {
-        return view('sms.create');
+        return view('sms.create')->with('page_title', 'Create Phone Number')
+                                         ->with('page_description', '');
     }
 
     /**
@@ -89,7 +90,8 @@ class SmsNumberController extends Controller
     public function edit($id)
     {
         $sms = SmsNumber::find($id);
-        return view('sms.edit')->with('sms', $sms);
+        return view('sms.edit')->with('sms', $sms)->with('page_title', 'Edit phone numberinformation')
+                                         ->with('page_description', '');
     }
 
     /**
@@ -101,10 +103,6 @@ class SmsNumberController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'sms_number' => 'phone:US'
-        ]);
-
         $sms = SmsNumber::find($id);
         $sms->sms_number = $request->input('sms_number');
         $sms->assign_to = $request->input('assign_to');

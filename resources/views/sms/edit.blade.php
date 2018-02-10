@@ -1,13 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading"><h3 align="center">Update Sms Number</h3></div>
-
-                <div class="panel-body">
+<section class="content">
+    <div class="box box-primary">
+        <div class="panel-body">
                     {!! Form::open(['action' => ['Sms\SmsNumberController@update', $sms->id], 'method'=>'POST']) !!}
                         <div class="form-group">
                             {!! Form::label('sms_number', 'Phone number') !!} 
@@ -40,7 +36,10 @@
                         @endforeach
                     </ul>
             @endif
-        </div>
+        <!-- /.box-body -->
     </div>
-</div>
+    <!-- /.box -->
+</section>
+<!-- /.content -->
 @endsection
+
