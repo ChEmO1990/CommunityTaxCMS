@@ -19,6 +19,14 @@ Route::get('/', 'Home\HomeController@index');
 Route::resource('dashboard', 'Dashboard\DashboardController');
 Route::resource('sms', 'Sms\SmsNumberController');
 
+Route::get('admin', function () {
+
+  $my_list = SmsNumber::paginate(20);
+  return view('sms.index', compact('my_list'))->with('page_title', 'List of Telephone Numbers')
+                                         ->with('page_description', 'You can create, remove and edit any number phone.');
+});
+
+
 Route::get('/seed/db', function () {
 	$json = '[
   {

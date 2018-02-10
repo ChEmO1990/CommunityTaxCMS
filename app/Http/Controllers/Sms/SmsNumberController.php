@@ -18,7 +18,7 @@ class SmsNumberController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('guest');
     }
     
     /**
@@ -32,12 +32,14 @@ class SmsNumberController extends Controller
 
         if(empty($input) ) {
             $my_list = SmsNumber::paginate(20);
-            return view('sms.index', compact('my_list'));
+            return view('sms.index', compact('my_list'))->with('page_title', 'List of Telephone Numbers')
+                                         ->with('page_description', 'You can create, remove and edit any number phone.');
         } else {
             $my_list = SmsNumber::latest()
             ->search($input)
             ->paginate(20);
-            return view('sms.index', compact('my_list', 'input'));
+            return view('sms.index', compact('my_list', 'input'))->with('page_title', 'List of Telephone Numbers')
+                                         ->with('page_description', 'You can create, remove and edit any number phone.');;
         }
     }
 
