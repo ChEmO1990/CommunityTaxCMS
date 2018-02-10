@@ -1,11 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.app_plain')
 
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading"> <h3 align="center">Login</h3> </div>
                 <div class="panel-body">
                     <div style="text-align:center; padding-bottom:24px">
                         {!! Html::image('img/logo.png') !!}

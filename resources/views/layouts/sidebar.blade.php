@@ -10,9 +10,9 @@
           <img src="/adminlte/img/avatar5.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Anselmo Hernandez</p>
+          <p>{{ Auth::user()->name }}</p>
           <!-- Status -->
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <a><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
 
@@ -20,16 +20,21 @@
       <ul class="sidebar-menu" data-widget="tree">d
         <li class="header">OPTIONS</li>
         <!-- Optionally, you can add icons to the links -->
-         <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Telephone Numbers</span></a></li>
+          <li class="{{ Request::is('dashboard')? "active":""}}"><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+
+          <li class="{{ Request::is('sms')? "active":""}}"><a href="{{ route('sms.index') }}"><i class="fa  fa-phone"></i> <span>Telephone numbers</span></a></li>
+
+          <li class="{{ Request::is('register')? "active":""}}"><a href="{{ route('register') }}"><i class="fa fa-users"></i> <span>Employees</span></a></li>
+
         <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Users</span>
+          <a href="#"><i class="fa fa-gears"></i> <span>Actions</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">New Hires Form</a></li>
-            <li><a href="#">Termination Form</a></li>
+            <li class="{{ Request::is('register')? "active":""}}"><a href="{{ route('register') }}"><i class="fa fa-user-plus"></i> <span>New Hire Form</span></a></li>
+            <<li class="{{ Request::is('register')? "active":""}}"><a href="{{ route('register') }}"><i class="fa fa-user-times"></i> <span>Termination Form</span></a></li>
           </ul>
         </li>
       </ul>
