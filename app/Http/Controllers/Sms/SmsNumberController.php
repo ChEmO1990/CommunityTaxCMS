@@ -90,7 +90,7 @@ class SmsNumberController extends Controller
     public function edit($id)
     {
         $sms = SmsNumber::find($id);
-        return view('sms.edit')->with('sms', $sms)->with('page_title', 'Edit phone numberinformation')
+        return view('sms.edit')->with('sms', $sms)->with('page_title', 'Edit phone number information')
                                          ->with('page_description', '');
     }
 
