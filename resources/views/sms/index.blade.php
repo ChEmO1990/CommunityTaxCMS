@@ -32,10 +32,11 @@
                     <td>
 
                         {!! Form::model($sms, ['method' => 'delete', 'route' => ['sms.destroy', $sms->id], 'class' =>'pull-right  form-delete']) !!}
-                        {{ link_to_route('sms.edit', 'Edit', [$sms->id], ['class'=>'btn btn-primary btn-sm']) }}
                         {!! Form::hidden('id', $sms->id) !!}
-                    {!! Form::submit(trans('Delete'), ['class' => 'btn btn-danger btn-sm', 'name' => 'delete_modal']) !!}
+                        {!! Form::submit(trans('Delete'), ['class' => 'btn btn-danger btn-sm', 'name' => 'delete_modal']) !!}
                         {!! Form::close() !!}
+                        {{ link_to_route('sms.edit', 'Edit', [$sms->id], ['class'=>'pull-right btn btn-primary btn-sm']) }}
+
                             </td>
                 <tr>
                     @endforeach
