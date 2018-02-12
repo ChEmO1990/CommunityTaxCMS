@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('layouts.modal')
 <section class="content">
     <div class="box box-primary">
         <div class="box-body">
@@ -17,8 +18,7 @@
                 </div>
             </form>
         </div>
-
-        <table class="table">
+        <table class="table table-bordered table-striped table-hover category-table" data-toggle="dataTable" data-form="deleteForm">
             <tr>
                 <th>User name</th>
                 <th>Sms Number</th>
@@ -30,10 +30,11 @@
                     <td>{{ $sms->sms_number}} </td>
                     <td>{{ $sms->comment}} </td>
                     <td>
-                        {!! Form::open(['action' => ['Sms\SmsNumberController@destroy', $sms->id], 'method'=>'POST', 'class' => 'pull-right']) !!}
-                            {{ link_to_route('sms.edit', 'Edit', [$sms->id], ['class'=>'btn btn-primary btn-sm']) }}
-                            {!! Form::hidden('_method', 'DELETE') !!}
-                            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+
+                        {!! Form::model($sms, ['method' => 'delete', 'route' => ['sms.destroy', $sms->id], 'class' =>'pull-right  form-delete']) !!}
+                        {{ link_to_route('sms.edit', 'Edit', [$sms->id], ['class'=>'btn btn-primary btn-sm']) }}
+                        {!! Form::hidden('id', $sms->id) !!}
+                    {!! Form::submit(trans('Delete'), ['class' => 'btn btn-danger btn-sm', 'name' => 'delete_modal']) !!}
                         {!! Form::close() !!}
                             </td>
                 <tr>

@@ -96,5 +96,7 @@ desired effect
 <script src="/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/adminlte/js/adminlte.min.js"></script>
+<!-- Dialog confirm -->
+<script src="/js/modal_confirm.js"></script>
 </body>
 </html>
