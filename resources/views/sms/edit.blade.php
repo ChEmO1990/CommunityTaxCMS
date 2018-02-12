@@ -21,7 +21,7 @@
                         </div>
 
                         <div class="form-group">
-                            {!! Form::button('Update', ['type'=>'submit', 'class'=>'btn btn-primary btn-block']) !!} 
+                            {!! Form::button('Update', ['type'=>'submit', 'class'=>'btn btn-primary']) !!} 
                         </div>
 
                         {!! Form::hidden('_method', 'PUT') !!}

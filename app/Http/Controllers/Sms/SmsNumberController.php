@@ -62,6 +62,7 @@ class SmsNumberController extends Controller
      */
     public function store(SmsNumberRequest $request)
     {
+        alert()->success('Phone number', 'The record has been saved successfully.');
         SmsNumber::create($request->all());
         return redirect()->route('sms.index')->with('message', 'item added');
     }
@@ -108,6 +109,8 @@ class SmsNumberController extends Controller
         $sms->assign_to = $request->input('assign_to');
         $sms->comment = $request->input('comment');
         $sms->save();
+
+        alert()->success('Phone number', 'The record has been edited successfully.');
         return redirect('sms')->with('success', 'Updated ok');
     }
 
@@ -121,6 +124,7 @@ class SmsNumberController extends Controller
     {
         $sms = SmsNumber::find($id);
         $sms->delete();
+        alert()->success('Phone number', 'The record has been removed successfully.');
         return redirect('sms')->with('success', 'Post Rmoved');
     }
 }

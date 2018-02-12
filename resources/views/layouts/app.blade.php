@@ -35,6 +35,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+        <!-- Sweet Alert -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/sweetalert2/5.3.5/sweetalert2.min.css">
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -58,7 +61,6 @@ desired effect
 -->
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-
   <!-- Header -->
     @include('layouts.header')
     
@@ -98,5 +100,10 @@ desired effect
 <script src="/adminlte/js/adminlte.min.js"></script>
 <!-- Dialog confirm -->
 <script src="/js/modal_confirm.js"></script>
+
+<!-- Sweet dialog JS -->
+<script src="https://cdn.jsdelivr.net/sweetalert2/5.3.5/sweetalert2.min.js"></script>
+<!-- Sweet Alert -->
+  @include('Alerts::alerts')
 </body>
 </html>

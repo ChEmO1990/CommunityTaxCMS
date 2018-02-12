@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "516b0d99f677750cfb4da87b220a2aa1",
+    "content-hash": "e39745225ce831fce0d0867db372a110",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -435,6 +435,45 @@
             ],
             "description": "Locale functions required by libphonenumber-for-php",
             "time": "2017-11-01T21:34:27+00:00"
+        },
+        {
+            "name": "infinety/alerts",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Infinety/alerts.git",
+                "reference": "1ea792f4e810fc0c4d1f5b80df6c18f1d555f2b8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Infinety/alerts/zipball/1ea792f4e810fc0c4d1f5b80df6c18f1d555f2b8",
+                "reference": "1ea792f4e810fc0c4d1f5b80df6c18f1d555f2b8",
+                "shasum": ""
+            },
+            "type": "package",
+            "autoload": {
+                "psr-4": {
+                    "Infinety\\Alerts\\": "/src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Infinety",
+                    "email": "create@infinety.co.uk"
+                }
+            ],
+            "description": "A Sweet Alert package for Laravel 5>",
+            "keywords": [
+                "alert",
+                "laravel",
+                "laravel sweet alert",
+                "sweet-alert"
+            ],
+            "time": "2017-10-17T15:38:14+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -4339,7 +4378,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "infinety/alerts": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
