@@ -18,6 +18,7 @@ Auth::routes();
 Route::get('/', 'Home\HomeController@index');
 Route::resource('dashboard', 'Dashboard\DashboardController');
 Route::resource('sms', 'Sms\SmsNumberController');
+Route::resource('employees', 'Employee\EmployeeController');
 
 Route::get('admin', function () {
 

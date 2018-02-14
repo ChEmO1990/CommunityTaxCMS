@@ -36,8 +36,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
-        <!-- Sweet Alert -->
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/sweetalert2/5.3.5/sweetalert2.min.css">
+  <!-- Sweet Alert -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/sweetalert2/5.3.5/sweetalert2.min.css">
+
+  <!-- Bootstrap Date-Picker Plugin -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -100,6 +103,9 @@ desired effect
 <script src="/adminlte/js/adminlte.min.js"></script>
 <!-- Dialog confirm -->
 <script src="/js/modal_confirm.js"></script>
+<script src="/js/date-selected.js"></script>
+<!-- DataPicker -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 
 <!-- Sweet dialog JS -->
 <script src="https://cdn.jsdelivr.net/sweetalert2/5.3.5/sweetalert2.min.js"></script>

@@ -24,7 +24,7 @@
 
           <li class="{{ Request::is('sms')? "active":""}}"><a href="{{ route('sms.index') }}"><i class="fa  fa-phone"></i> <span>Telephone numbers</span></a></li>
 
-          <li class="{{ Request::is('register')? "active":""}}"><a href="{{ route('register') }}"><i class="fa fa-users"></i> <span>Employees</span></a></li>
+          <li class="{{ Request::is('employees')? "active":""}}"><a href="{{ route('employees.index') }}"><i class="fa fa-users"></i> <span>Employees</span></a></li>
 
         <li class="treeview">
           <a href="#"><i class="fa fa-gears"></i> <span>Actions</span>
@@ -33,7 +33,8 @@
               </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{ Request::is('register')? "active":""}}"><a href="{{ route('register') }}"><i class="fa fa-user-plus"></i> <span>New Hire Form</span></a></li>
+            <li class="{{ Request::is('employees')? "active":""}}"><a href="{{ route('employees.create') }}"><i class="fa fa-users"></i> <span>New Hire Form</span></a></li>
+
             <<li class="{{ Request::is('register')? "active":""}}"><a href="{{ route('register') }}"><i class="fa fa-user-times"></i> <span>Termination Form</span></a></li>
           </ul>
         </li>

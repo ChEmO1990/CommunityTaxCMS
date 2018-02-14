@@ -5,10 +5,13 @@
 <section class="content">
     <div class="box box-primary">
         <div class="box-body">
-            <div class="panel-heading" align="center">
-                <a href="url">{{ link_to_route('sms.create', 'Add Number', null, ['class'=>'btn btn-primary btn-sm']) }}</a>
-            </div>
-            <form action="{{ route('sms.index') }}" method="get" class="form-inline">
+            <form action="{{ route('sms.create') }}" method="get" class="form-inline">
+                <div class="row no-print">
+                    <div class="col-xs-12">
+                        {!! Form::button('Create Sms', ['type'=>'submit', 'class'=>'btn btn-primary pull-right']) !!} 
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <input type="text" class="form-control" name="s" placeholder="Keyword">
                 </div>

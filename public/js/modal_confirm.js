@@ -1,8 +1,6 @@
-$('table[data-form="deleteForm"]').on('click', '.form-delete', function(e){
-    e.preventDefault();
-    var $form=$(this);
-    $('#confirm').modal({ backdrop: 'static', keyboard: false })
-        .on('click', '#delete-btn', function(){
-            $form.submit();
+$('#datepicker').datepicker({
+            daysOfWeekDisabled: [0, 6],
+            endDate: '+0d',
+            autoclose: true,
+            format: "dd/mm/yyyy"
         });
-});
