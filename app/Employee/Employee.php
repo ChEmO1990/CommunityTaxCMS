@@ -17,7 +17,7 @@ class Employee extends Model
 		'status',
 		'did',
 		'ext',
-		'3clogics_account',
+		'clogics_account',
 		'logics_account',
 		'assign_logics_sms',
 		'tax_preparer_udfid',

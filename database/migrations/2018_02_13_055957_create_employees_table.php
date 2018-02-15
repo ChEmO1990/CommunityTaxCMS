@@ -27,7 +27,7 @@ class CreateEmployeesTable extends Migration
             $table->string('did')->nullable();
             $table->string('ext')->nullable();
 
-            $table->boolean('3clogics_account')->default(false);
+            $table->boolean('clogics_account')->default(false);
             $table->boolean('logics_account')->default(false);
             $table->boolean('assign_logics_sms')->default(false);
             $table->boolean('tax_preparer_udfid')->default(false);

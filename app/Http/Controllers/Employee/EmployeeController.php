@@ -61,22 +61,6 @@ class EmployeeController extends Controller
      */
     public function store(EmployeeRequest $request)
     {
-        var_dump($request->all());
-
-        /*
-        $rules = [
-            'name' => 'required',
-            'network_account' => 'required',
-            'email' => 'required',
-            'clone_account' => 'required',
-            'location' => 'required',
-            'job_title' => 'required',
-            'start_date' => 'required'
-        ];
-        
-        $this->validate($request, $rules);
-
-
         $full_name = $request['full_name'];
         $network_account = $request['network_account'];
         $email = $request['email'];
@@ -86,7 +70,7 @@ class EmployeeController extends Controller
         $did = $request['did'];
         $ext = $request['ext'];
         $date = $request['date'];
-        $clogics = $request['3clogics'];
+        $clogics = $request['clogics_account'];
         $logics = $request['logics'];
         $assign_logics_sms = $request['assign_logics_sms'];
         $tax_preparer_udfid = $request['tax_preparer_udfid'];
@@ -95,31 +79,6 @@ class EmployeeController extends Controller
         $spark_account = $request['spark_account'];
         $docstar = $request['docstar'];
         $user_scanner = $request['user_scanner'];
-
-
-        $employee = new Employee();
-        $employee->name($full_name);
-        $employee->network_account($network_account);
-        $employee->email($email);
-        $employee->clone_account($manager_account_name);
-        $employee->location($locations);
-        $employee->job_title($job_title);
-        $employee->did($did);
-        $employee->ext($ext);
-        $employee->start_date($date);
-
-        $employee->clogics_account($clogics);
-        $employee->logics_account($logics);
-        $employee->assign_logics_sms($assign_logics_sms);
-        $employee->tax_preparer_udfid($tax_preparer_udfid);
-        $employee->tax_preparers_eas($tax_preparer_eas);
-        $employee->ifax_account($ifax_account);
-        $employee->spark_account($spark_account);
-        $employee->ds_account($docstar);
-        $employee->user_to_scanner($user_scanner);
-
-        var_dump($employee);
-        */
     }
 
     /**
