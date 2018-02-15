@@ -110,6 +110,6 @@ desired effect
 <!-- Sweet dialog JS -->
 <script src="https://cdn.jsdelivr.net/sweetalert2/5.3.5/sweetalert2.min.js"></script>
 <!-- Sweet Alert -->
-  @include('Alerts::alerts')
+@include('Alerts::alerts')
 </body>
 </html>
