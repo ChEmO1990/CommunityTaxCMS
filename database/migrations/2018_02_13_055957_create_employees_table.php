@@ -15,7 +15,7 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->increments('id');
-
+            
             $table->string('name');
             $table->string('network_account');
             $table->string('email');
@@ -23,7 +23,7 @@ class CreateEmployeesTable extends Migration
             $table->string('location');
             $table->string('job_title');
             $table->string('start_date');
-            $table->boolean('active')->default(true);
+            $table->boolean('status')->default(true);
             $table->string('did')->nullable();
             $table->string('ext')->nullable();
 

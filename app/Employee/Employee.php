@@ -14,7 +14,7 @@ class Employee extends Model
 		'location',
 		'job_title',
 		'start_date',
-		'active',
+		'status',
 		'did',
 		'ext',
 		'3clogics_account',
@@ -52,5 +52,9 @@ class Employee extends Model
 		$temp = $query->where('employees.name', 'like', '%' .$s. '%');
 			info($temp->toSql());
 			return $temp;
+	}
+
+	public function accounts() {
+		return $this->hasMany('App\Account\Account');
 	}
 }

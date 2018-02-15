@@ -130,7 +130,7 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        //
+        echo 'Hola';
     }
 
     /**
