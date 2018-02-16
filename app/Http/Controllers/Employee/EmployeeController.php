@@ -236,8 +236,6 @@ class EmployeeController extends Controller
 
         alert()->success('Employee', 'The record has been saved successfully.');
         return redirect()->route('employees.index')->with('message', 'item added');
-
-        echo 'Todo se grabo correctamente';
     }
 
     /**
@@ -248,7 +246,8 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        echo 'Hola';
+        return view('employee.show')->with('page_title', 'Detailed Information')
+                                         ->with('page_description', '');
     }
 
     /**
