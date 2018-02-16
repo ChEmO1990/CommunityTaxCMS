@@ -17,16 +17,24 @@
         </div>
         <table class="table table-bordered table-striped table-hover category-table" data-toggle="dataTable" data-form="deleteForm">
             <tr>
+                <th>Status</th>
                 <th>Full Name</th>
                 <th>Network Account</th>
                 <th>Email</th>
                 <th>Job Title</th>
                 <th>Location</th>
                 <th>Extension</th>
-                <th>Status</th>
+                <th>Action</th>
                 <tr>
                     @foreach($employees as $employee)
                 <tr>
+                    <td> 
+                        @if( $employee->status == 1 )
+                            <span class="label label-success">Active</span>
+                        @else 
+                            <span class="label label-danger">Inavtive</span>
+                        @endif
+                    </td>
                     <td>
                         <a href="{{ route('employees.show', $employee) }}"> {{$employee->name}} </a>
                     </td>
@@ -35,12 +43,8 @@
                     <td>{{ $employee->job_title}} </td>
                     <td>{{ $employee->location}} </td>
                     <td>{{ $employee->ext}} </td>
-                    <td> 
-                        @if( $employee->status == 1 )
-                            <span class="label label-success">Active</span>
-                        @else 
-                            <span class="label label-danger">Inavtive</span>
-                        @endif
+                    <td>
+                        <a href="{{url('employees/download/New Hire Checklist and Welcome Sheet '.strtoupper($employee->name).'.pdf')}}">PDF</a>
                     </td>
                 <tr>
                     @endforeach

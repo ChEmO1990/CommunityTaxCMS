@@ -283,4 +283,10 @@ class EmployeeController extends Controller
     {
         //
     }
+
+    public function download(Employee $employee) {
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadHTML('<h1>Test</h1>');
+        return $pdf->download('anselmosss.pdf');
+    }
 }
