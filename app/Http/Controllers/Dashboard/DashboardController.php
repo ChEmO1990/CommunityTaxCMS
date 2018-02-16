@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Sms\SmsNumber;
+use App\Models\Sms\SmsNumber;
 use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Sms;
 
-use App\Sms\SmsNumber;
 use Illuminate\Http\Request;
+use App\Models\Sms\SmsNumber;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\SmsNumberRequest;

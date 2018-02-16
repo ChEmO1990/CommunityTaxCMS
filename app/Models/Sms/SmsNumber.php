@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Sms;
+namespace App\Models\Sms;
 
 use Illuminate\Database\Eloquent\Model;
 

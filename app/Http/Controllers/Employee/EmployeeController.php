@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Employee;
 
-use App\Employee\Employee;
 use Illuminate\Http\Request;
+use App\Models\Employees\Employee;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EmployeeRequest;
 
