@@ -36,7 +36,7 @@
                     <td>{{ $employee->location}} </td>
                     <td>{{ $employee->ext}} </td>
                     <td> 
-                        @if( $employee->active == 1 )
+                        @if( $employee->status == 1 )
                             <span class="label label-success">Active</span>
                         @else 
                             <span class="label label-danger">Inavtive</span>

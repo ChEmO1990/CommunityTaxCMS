@@ -27,10 +27,11 @@ class EmployeeRequest extends FormRequest
             'name' => 'required',
             'network_account' => 'required',
             'email' => 'required',
-            'manager_account_name' => 'required',
+            'clone_account' => 'required',
             'location' => 'required',
             'job_title' => 'required',
-            'date' => 'required'
+            'start_date' => 'required',
+            'ext' => 'required'
         ];
     }
 }

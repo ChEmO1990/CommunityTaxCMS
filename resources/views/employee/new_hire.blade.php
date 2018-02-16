@@ -21,8 +21,8 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('manager_account_name', 'Manager Account Name') !!} 
-                {!! Form::text('manager_account_name', null, ['class'=>'form-control']) !!}  
+                {!! Form::label('clone_account', 'Manager Account Name') !!} 
+                {!! Form::text('clone_account', null, ['class'=>'form-control']) !!}  
             </div>
 
             <div class="form-group">
@@ -55,15 +55,16 @@
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
-                    <input name="date" type="text" class="form-control pull-right" id="datepicker" data-provide="datepicker">
+                    <input name="start_date" type="text" class="form-control pull-right" id="datepicker" data-provide="datepicker">
                 </div>
             </div>
 
             <div class="form-group with-border">
                 <h3 class="box-title">Checklist</h3>
+                
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" name="3clogics">
+                        <input type="checkbox" name="clogics_account">
                         Create 3CLogics Account
                     </label>
                 </div>

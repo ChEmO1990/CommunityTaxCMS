@@ -2,11 +2,13 @@
 
 namespace App\Models\Employees;
 
+use App\Models\Accounts\Account;
 use Illuminate\Database\Eloquent\Model;
 
 class Employee extends Model
 {
 	protected $fillable = [
+		'id',
 		'name', 
 		'network_account',
 		'email',
@@ -27,7 +29,6 @@ class Employee extends Model
 		'ds_account',
 		'user_to_scanner',
 		'term_date',
-		'position',
 		'fwd_to_name',
 		'fwd_to_ext',
 		'fwd_to_mail',
@@ -55,6 +56,6 @@ class Employee extends Model
 	}
 
 	public function accounts() {
-		return $this->hasMany('App\Account\Account');
+		return $this->hasMany(Account::class);
 	}
 }

@@ -21,8 +21,8 @@ class CreateAccountsTable extends Migration
             ->on('employees')
             ->onDelete('cascade');
             $table->string('type_account');
-            $table->string('user_name');
-            $table->string('password');
+            $table->string('user_name')->nullable();;
+            $table->string('password')->nullable();;
             $table->boolean('status')->default(true);
             $table->timestamps();
         });
