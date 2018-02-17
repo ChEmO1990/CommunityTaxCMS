@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<?php $image_path = '/img/logo.png'; ?>
-<img align="right" src="{{ public_path() . $image_path }} ">
+        <p>Welcome to my website...</p>
+<img src="img/dummy.jpg">
 </body>
 </html>
