@@ -17,7 +17,7 @@ Route::get('/', 'Home\HomeController@index');
 Route::resource('dashboard', 'Dashboard\DashboardController');
 Route::resource('sms', 'Sms\SmsNumberController');
 Route::resource('employees', 'Employee\EmployeeController');
-Route::get('employees/download/{filename}', 'Download\DownloadController@download')->middleware('auth');
+Route::get('employees/download/{id}', 'Download\DownloadController@download')->middleware('auth');
 
 Route::get('/seed/db', function () {
 	$json = '[
@@ -1055,7 +1055,13 @@ foreach($items as $item) {
 	$sms->sms_number = $item['SMSNumber'];
 	$sms->assign_to = $item['Name'];
 	$sms->comment = $item['Column1'];
+
+  if(strtolower($sms->assign_to) == strtolower('open') || empty($sms->assign_to) ) {
+    $sms->status = true;
+  } else {
+    $sms->status = false;
+  }
 	$sms->save();
-	var_dump($sms);
+  var_dump($sms);
 }
 });

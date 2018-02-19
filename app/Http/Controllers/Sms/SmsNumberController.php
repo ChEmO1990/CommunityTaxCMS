@@ -28,15 +28,42 @@ class SmsNumberController extends Controller
      */
     public function index(Request $request)
     {
-        $input = $request->input('s');
+        $input_s = $request->input('s');
+        $input_status = $request->input('status');
 
-        if(empty($input) ) {
+        if(empty($input_s) ) {
+            switch($input_status) {
+            case 'available': 
+                $my_list = SmsNumber::where('status', 1)
+                ->paginate(20);
+                return view('sms.index', compact('my_list', 'input_status'))
+                    ->with('page_title', 'List of Telephone Numbers')
+                    ->with('page_description', 'You can create, remove and edit any number phone.');
+            break;
+
+            case 'notavailable': 
+                $my_list = SmsNumber::where('status', 0)
+                ->paginate(20);
+                return view('sms.index', compact('my_list', 'input_status'))
+                    ->with('page_title', 'List of Telephone Numbers')
+                    ->with('page_description', 'You can create, remove and edit any number phone.');
+            break;
+
+            case 'reset': 
+                $my_list = SmsNumber::paginate(20);
+            return view('sms.index', compact('my_list'))->with('page_title', 'List of Telephone Numbers')
+                                         ->with('page_description', 'You can create, remove and edit any number phone.');
+            break;
+
+            default:
             $my_list = SmsNumber::paginate(20);
             return view('sms.index', compact('my_list'))->with('page_title', 'List of Telephone Numbers')
                                          ->with('page_description', 'You can create, remove and edit any number phone.');
+
+        }
         } else {
             $my_list = SmsNumber::latest()
-            ->search($input)
+            ->search($input_s)
             ->paginate(20);
             return view('sms.index', compact('my_list', 'input'))->with('page_title', 'List of Telephone Numbers')
                                          ->with('page_description', 'You can create, remove and edit any number phone.');
@@ -108,6 +135,14 @@ class SmsNumberController extends Controller
         $sms->sms_number = $request->input('sms_number');
         $sms->assign_to = $request->input('assign_to');
         $sms->comment = $request->input('comment');
+        $sms->status = $request->input('status');
+
+        if(strtolower($sms->status) == strtolower('open') || empty($sms->status) ) {
+            $sms->status = true;
+        } else {
+            $sms->status = false;
+        }
+        
         $sms->save();
 
         alert()->success('Phone number', 'The record has been edited successfully.');

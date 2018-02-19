@@ -246,7 +246,8 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        return view('employee.show')->with('page_title', 'Detailed Information')
+        $accounts = Employee::find($employee->id)->accounts;
+        return view('employee.show', compact('employee'), compact('accounts'))->with('page_title', 'Detailed Information')
                                          ->with('page_description', '');
     }
 

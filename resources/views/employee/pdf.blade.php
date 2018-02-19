@@ -4,8 +4,10 @@
     <title>Document</title>
 </head>
 <body>
-
-        <p>Welcome to my website...</p>
-<img src="img/dummy.jpg">
+	<h4>WELCOME TO COMMUNITY TAX</h4>
+	<b> Full Name: {{ $employee->job_title}}</b></br>
+	<b> Full Name:    Anselmo Hernandez</b></br>
+	<b> Full Name:    Anselmo Hernandez</b></br>
+		<img src="img/logo.png" align="right">
 </body>
 </html>

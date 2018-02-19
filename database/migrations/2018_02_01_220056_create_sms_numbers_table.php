@@ -18,6 +18,7 @@ class CreateSmsNumbersTable extends Migration
             $table->string('sms_number');
             $table->string('assign_to')->nullable();
             $table->string('comment')->nullable();
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }

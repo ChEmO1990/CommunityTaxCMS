@@ -15,7 +15,12 @@
                 </div>
             </form>
         </div>
-        <table class="table table-bordered table-striped table-hover category-table" data-toggle="dataTable" data-form="deleteForm">
+
+        <!-- Table row -->
+      <div class="row">
+        <div class="col-xs-12 table-responsive">
+          <table class="table table-striped">
+            <thead>
             <tr>
                 <th>Status</th>
                 <th>Full Name</th>
@@ -32,7 +37,7 @@
                         @if( $employee->status == 1 )
                             <span class="label label-success">Active</span>
                         @else 
-                            <span class="label label-danger">Inavtive</span>
+                            <span class="label label-danger">Inactive</span>
                         @endif
                     </td>
                     <td>
@@ -44,11 +49,20 @@
                     <td>{{ $employee->location}} </td>
                     <td>{{ $employee->ext}} </td>
                     <td>
-                        <a href="{{url('employees/download/New Hire Checklist and Welcome Sheet '.strtoupper($employee->name).'.pdf')}}">PDF</a>
+                        <a href="{{ action('Download\DownloadController@download', $employee->id) }}"> {{$employee->name}} </a>
+
                     </td>
                 <tr>
                     @endforeach
-        </table>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
+        </div>
+        <!-- /.col -->
+      </div>
         @if(empty($s))
             {{ $employees->links() }}
         @else

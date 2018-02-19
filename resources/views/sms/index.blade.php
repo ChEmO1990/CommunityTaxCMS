@@ -6,6 +6,12 @@
     <div class="box box-primary">
         <div class="box-body">
             <div class="box-body">
+                <div class="form-group">
+                    Filters:
+                    <a href="/sms?status=available">Available</a> |
+                    <a href="/sms?status=notavailable">Not Available</a> |
+                    <a href="/sms">Reset</a> |
+                </div>
                 <div div class="col-xs-12>
                     <a href="url">{{ link_to_route('sms.create', 'Add Sms Number', null, ['class'=>'btn btn-primary btn-sm pull-right']) }}</a>
 
@@ -23,6 +29,7 @@
         </div>
         <table class="table category-table" data-toggle="dataTable" data-form="deleteForm">
                 <tr>
+                <th>Status</th>
                 <th>User name</th>
                 <th>Sms Number</th>
                 <th>Comment</th>
@@ -30,6 +37,13 @@
                 <tr>
                     @foreach($my_list as $sms)
                 <tr>
+                    <td> 
+                        @if( $sms->status == 1 )
+                            <span class="label label-success">Available</span>
+                        @else 
+                            <span class="label label-danger">Not Available</span>
+                        @endif
+                    </td>
                     <td>{{ $sms->assign_to}} </td>
                     <td>{{ $sms->sms_number}} </td>
                     <td>{{ $sms->comment}} </td>
@@ -44,7 +58,15 @@
                     @endforeach
         </table>
         @if(empty($s))
-            {{ $my_list->links() }}
+            @if(request('status') == 'available')
+                {{ $my_list->appends(['status' => 'available'])->links() }}
+            @elseif(request('status') == 'notavailable')
+                {{ $my_list->appends(['status' => 'notavailable'])->links() }}
+            @elseif(request('status') == 'reset')
+                {{ $my_list->links() }}
+            @else
+                {{ $my_list->links() }}
+            @endif
         @else
             {{ $my_list->appends(['s' => $s])->links() }}
         @endif
