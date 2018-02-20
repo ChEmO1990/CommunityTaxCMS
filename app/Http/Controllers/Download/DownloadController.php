@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 
 class DownloadController extends Controller
 {
-	public function download($id) {
+	public function downloadPDF($id) {
 		//$pdf = App::make('dompdf.wrapper');
 		//$pdf->loadHTML('<h1>Test</h1>');
 		//return $pdf->download($file_name);
@@ -18,6 +18,10 @@ class DownloadController extends Controller
 		//$pdf = PDF::loadView('employee.pdf');
 		//return $pdf->download('invoice.pdf');
 
-		dd($id);
+		$employee = Employee::with('Accounts')->get()->find($id);
+        view()->share('employee',$employee);
+
+        $pdf = PDF::loadView('employee.pdf');
+        return $pdf->download('invoice22.pdf');
   }
 }

@@ -49,8 +49,7 @@
                     <td>{{ $employee->location}} </td>
                     <td>{{ $employee->ext}} </td>
                     <td>
-                        <a href="{{ action('Download\DownloadController@download', $employee->id) }}"> {{$employee->name}} </a>
-
+                        <a href="{{ action('Download\DownloadController@downloadPDF', $employee->id) }}">PDF</a>
                     </td>
                 <tr>
                     @endforeach

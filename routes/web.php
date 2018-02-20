@@ -17,7 +17,7 @@ Route::get('/', 'Home\HomeController@index');
 Route::resource('dashboard', 'Dashboard\DashboardController');
 Route::resource('sms', 'Sms\SmsNumberController');
 Route::resource('employees', 'Employee\EmployeeController');
-Route::get('employees/download/{id}', 'Download\DownloadController@download')->middleware('auth');
+Route::get('employees/download/{id}', 'Download\DownloadController@downloadPDF')->middleware('auth');
 
 Route::get('/seed/db', function () {
 	$json = '[
