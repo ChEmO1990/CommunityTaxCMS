@@ -9,7 +9,7 @@ class Account extends Model
 	const TYPE_PERSONAL_ACCOUNT = 'Personal Account';
 	const TYPE_3CLOGICS_ACCOUNT = '3CLogics';
 	const TYPE_LOGICS_ACCOUNT = 'Logics';
-	const TYPE_OUTLOOK_ACCOUNT = 'Outlook';
+	const TYPE_OUTLOOK_ACCOUNT = 'Email';
 	const TYPE_SPARK_ACCOUNT = 'Spark';
 	const TYPE_HYLAFAX_ACCOUNT = 'Hylafax';
 	const TYPE_PHONESYSTEM_ACCOUNT = 'PhoneSystem';

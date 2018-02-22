@@ -10,13 +10,7 @@
       <div class="col-xs-12">
         <h2 class="page-header">
           <i class="fa fa-user-circle-o"></i> {{ $employee->name }}
-          @if( $employee->status === 1 ) 
-          <small class="pull-right">Start Date: {{ $employee->start_date }}</small>
-          @else
-          <small class="pull-right"> <b style="color:black;">Start Date: {{ $employee->start_date }}</b> 
-            | <b style="color:red;">Term Date: {{ $employee->term_date }}</b> </small>
-            @endif
-          </h2>
+        </h2>
         </div>
         <!-- /.col -->
       </div>
@@ -27,10 +21,10 @@
         <!-- info row -->
         <div class="row invoice-info">
           <div class="col-sm-4 invoice-col">
-            <strong>Forward Name To:</strong><p>    {{ $employee->fwd_to_name }} </p>
+            <strong>Forward Name To:</strong><p> {{ $employee->fwd_to_name }} </p>
             <address>
-              <strong>Forward Extension To:</strong><p>    {{ $employee->fwd_to_ext }} </p>
-              <strong>Forward Mails to:</strong><p>    {{ $employee->fwd_to_mail }} </p>
+              <strong>Forward Extension To:</strong><p> {{ $employee->fwd_to_ext }} </p>
+              <strong>Forward Mails to:</strong><p> {{ $employee->fwd_to_mail }} </p>
             </address>
           </div>
         </div>
@@ -120,27 +114,14 @@
               <!-- /.col -->
             </div>
             @endif
-            
+
+            <!-- /.row -->
+
             <!-- this row will not appear when printing -->
             <div class="row no-print">
               <div class="col-xs-12">
-                @if( $employee->status === 1 ) 
-                <a href="{{ route('employees.edit', $employee->id) }}">
-                  <button type="button" class="btn btn-danger pull-right">Termination</button>
-                </a>
-
                 <a href="{{ route('employees.edit', $employee->id) }}">
                   <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">Edit Information</button>
-                </a>
-
-                <a href="{{ route('employees.edit', $employee->id) }}">
-                  <button type="button" class="btn btn-success pull-right" style="margin-right: 5px;">Generate PDF</button>
-                </a>
-                @else
-                <a href="{{ route('employees.edit', $employee->id) }}">
-                  <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">Edit Information</button>
-                </a>
-                @endif
               </div>
             </div>
           </div>

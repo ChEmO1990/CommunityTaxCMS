@@ -63,14 +63,14 @@
 
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="delete_calendar">
+            <input type="checkbox" name="delete_app_calendar">
             Delete Appt Calendar
           </label>
         </div>
 
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="move_task_logic">
+            <input type="checkbox" name="move_tasks_in_logics">
             MoveTasksInLogicsToMgr
           </label>
         </div>
@@ -84,94 +84,88 @@
 
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="set_logic_inactive">
+            <input type="checkbox" name="set_logics_to_inactive">
             SetLogicsToInactive
           </label>
         </div>
 
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="dis_account">
+            <input type="checkbox" name="dis_empl_account">
             DisEmplAcct
           </label>
         </div>
 
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="rel_extension">
+            <input type="checkbox" name="check_mac">
             RelExt
           </label>
         </div>
 
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="check_mac">
+            <input type="checkbox" name="golive">
             CheckMac 
           </label>
         </div>
 
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="go_live">
+            <input type="checkbox" name="removehylafax_account">
             UseGoLive
           </label>
         </div>
 
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="del_hylafax">
+            <input type="checkbox" name="printer_scanner">
             DelHylaFAXAcct
           </label>
         </div>
 
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="printer_scanner">
+            <input type="checkbox" name="remove_scandocs_folder">
             Printer/Scanner
           </label>
         </div>
 
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="rem_from_scandocs">
+            <input type="checkbox" name="movedocs_autoimport">
             RemfrmScanDocsFolder
           </label>
         </div>
 
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="movedocs">
+            <input type="checkbox" name="remove_docstar_inbox">
             MoveDocs/RemAutoImport
           </label>
         </div>
 
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="remove_docstar">
+            <input type="checkbox" name="remfrm_trueportal">
             Del DS Inbox
           </label>
         </div>
 
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="rem_frm_trueportal">
+            <input type="checkbox" name="remfrm_adt">
             RemFrmTruePortal
           </label>
         </div>
 
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="rem_frm_ADT">
+            <input type="checkbox" name="remfrm_website">
             RemfrmADT
           </label>
         </div>
-
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" name="rem_from_website">
-            RemfrmWebsite
-          </label>
-        </div>
+        
         <!-- this row will not appear when printing -->
         <div class="row no-print">
           <div class="col-xs-12">

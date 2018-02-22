@@ -40,13 +40,16 @@ class Employee extends Model
 		'dis_empl_account',
 		'check_mac',
 		'golive',
+		'removehylafax_account',
 		'printer_scanner',
 		'remove_scandocs_folder',
 		'movedocs_autoimport',
+		'remove_docstar_inbox',
 		'remfrm_trueportal',
 		'remfrm_adt',
 		'remfrm_website'
 	];
+	
 	protected $table = 'employees';
 
 	public function scopeSearch($query, $s) {

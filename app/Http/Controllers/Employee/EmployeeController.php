@@ -292,9 +292,9 @@ class EmployeeController extends Controller
         $employee = Employee::find($id);
 
         $rules = [ 
-            'term_date' => 'required',
+            'term_date'   => 'required',
             'fwd_to_name' => 'required', 
-            'fwd_to_ext' => 'required', 
+            'fwd_to_ext'  => 'required', 
             'fwd_to_mail' => 'required',
         ];
 
@@ -313,22 +313,123 @@ class EmployeeController extends Controller
         $employee->fwd_to_mail = $fwd_to_mail;
 
         $run_script = $request['run_script'];
-        $run_script = $request['delete_calendar'];
-        $run_script = $request['move_task_logic'];
-        $run_script = $request['release_sms'];
-        $run_script = $request['set_logic_inactive'];
-        $run_script = $request['dis_account'];
-        $run_script = $request['rel_extension'];
-        $run_script = $request['check_mac'];
-        $run_script = $request['go_live'];
-        $run_script = $request['del_hylafax'];
-        $run_script = $request['printer_scanner'];
-        $run_script = $request['rem_from_scandocs'];
-        $run_script = $request['movedocs'];
-        $run_script = $request['remove_docstar'];
-        $run_script = $request['rem_frm_trueportal'];
-        $run_script = $request['rem_frm_ADT'];
-        $run_script = $request['rem_from_website'];
+        $delete_app_calendar = $request['delete_app_calendar'];
+        $move_tasks_in_logics = $request['move_tasks_in_logics'];
+        $release_sms = $request['release_sms'];
+        $set_logics_to_inactive = $request['set_logics_to_inactive'];
+        $dis_empl_account = $request['dis_empl_account'];
+        $check_mac = $request['check_mac'];
+        $golive = $request['golive'];
+        $removehylafax_account = $request['removehylafax_account'];
+        $printer_scanner = $request['printer_scanner'];
+        $remove_scandocs_folder = $request['remove_scandocs_folder'];
+        $movedocs_autoimport = $request['movedocs_autoimport'];
+        $remove_docstar_inbox = $request['remove_docstar_inbox'];
+        $remfrm_trueportal = $request['remfrm_trueportal'];
+        $remfrm_adt = $request['remfrm_adt'];
+        $remfrm_website = $request['remfrm_website'];
+
+        if( !empty($run_script) ) {
+            $employee->run_script = true;
+        }
+
+        if( !empty($delete_app_calendar) ) {
+            $employee->delete_app_calendar = true;
+        }
+
+        if( !empty($move_tasks_in_logics) ) {
+            $employee->move_tasks_in_logics = true;
+        }
+
+        if( !empty($release_sms) ) {
+            $employee->release_sms = true;
+        }
+
+        if( !empty($set_logics_to_inactive) ) {
+            $employee->set_logics_to_inactive = true;
+        }
+
+        if( !empty($dis_empl_account) ) {
+            $employee->dis_empl_account = true;
+        }
+
+        if( !empty($check_mac) ) {
+            $employee->check_mac = true;
+        }
+
+        if( !empty($golive) ) {
+            $employee->golive = true;
+        }
+
+        if( !empty($removehylafax_account) ) {
+            $employee->removehylafax_account = true;
+        }
+
+        if( !empty($printer_scanner) ) {
+            $employee->printer_scanner = true;
+        }
+
+        if( !empty($remove_scandocs_folder) ) {
+            $employee->remove_scandocs_folder = true;
+        }
+
+        if( !empty($movedocs_autoimport) ) {
+            $employee->movedocs_autoimport = true;
+        }
+
+        if( !empty($remove_docstar_inbox) ) {
+            $employee->remove_docstar_inbox = true;
+        }
+
+        if( !empty($remfrm_trueportal) ) {
+            $employee->remfrm_trueportal = true;
+        }
+
+        if( !empty($remfrm_adt) ) {
+            $employee->remfrm_adt = true;
+        }
+
+        if( !empty($remfrm_website) ) {
+            $employee->remfrm_website = true;
+        }
+
+        //We save new values into table
+        $employee->save();
+
+        Account::where('employee_id', $id)
+        ->where('type_account', Account::TYPE_PERSONAL_ACCOUNT)
+        ->update(['status' => false]);
+
+        Account::where('employee_id', $id)
+        ->where('type_account', Account::TYPE_3CLOGICS_ACCOUNT)
+        ->update(['status' => false]);
+
+        Account::where('employee_id', $id)
+        ->where('type_account', Account::TYPE_LOGICS_ACCOUNT)
+        ->update(['status' => false]);
+
+        Account::where('employee_id', $id)
+        ->where('type_account', Account::TYPE_OUTLOOK_ACCOUNT)
+        ->update(['status' => false]);
+
+        Account::where('employee_id', $id)
+        ->where('type_account', Account::TYPE_SPARK_ACCOUNT)
+        ->update(['status' => false]);
+
+        Account::where('employee_id', $id)
+        ->where('type_account', Account::TYPE_HYLAFAX_ACCOUNT)
+        ->update(['status' => false]);
+
+        Account::where('employee_id', $id)
+        ->where('type_account', Account::TYPE_PHONESYSTEM_ACCOUNT)
+        ->update(['status' => false]);
+
+        Account::where('employee_id', $id)
+        ->where('type_account', Account::TYPE_DOCSTAR_ACCOUNT)
+        ->update(['status' => false]);
+
+        alert()->success('Termination Process', 'The termination process has been finished successfully.');
+        return redirect()->route('employees.index');
     }
 
     /**
@@ -340,11 +441,5 @@ class EmployeeController extends Controller
     public function destroy(Employee $employee)
     {
 
-    }
-
-    public function download(Employee $employee) {
-        $pdf = App::make('dompdf.wrapper');
-        $pdf->loadHTML('<h1>Test</h1>');
-        return $pdf->download('anselmosss.pdf');
     }
 }
