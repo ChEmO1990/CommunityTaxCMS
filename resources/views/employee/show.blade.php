@@ -99,11 +99,17 @@
       <!-- this row will not appear when printing -->
       <div class="row no-print">
         <div class="col-xs-12">
-          <button type="button" class="btn btn-primary pull-right"><i class="fa fa-file-text-o"></i> Edit Employee
-          </button>
-          <button type="button" class="btn btn-success pull-right" style="margin-right: 5px;">
-            <i class="fa fa-file-pdf-o"></i> Generate PDF
-          </button>
+          <a href="{{ route('employees.edit', $employee->id) }}">
+            <button type="button" class="btn btn-danger pull-right"><i class="fa fa-eraser"></i>Termination</button>
+          </a>
+
+          <a href="{{ route('sms.edit', $employee->id) }}">
+            <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="fa fa-eraser"></i>Edit Information</button>
+          </a>
+
+          <a href="{{ route('sms.edit', $employee->id) }}">
+            <button type="button" class="btn btn-success pull-right" style="margin-right: 5px;"><i class="fa fa-eraser"></i>Generate PDF</button>
+          </a>
         </div>
       </div>
     </div>

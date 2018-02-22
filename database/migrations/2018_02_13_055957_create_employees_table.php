@@ -38,7 +38,6 @@ class CreateEmployeesTable extends Migration
             $table->boolean('user_to_scanner')->default(false);
 
             $table->string('term_date')->nullable();
-            //$table->string('position')->nullable();
             $table->string('fwd_to_name')->nullable();
             $table->string('fwd_to_ext')->nullable();
             $table->string('fwd_to_mail')->nullable();

@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <section class="content">
     <div class="box box-primary">
@@ -28,13 +27,12 @@
                         {!! Form::close() !!}
                 </div>
             </div>
-
             @if ( count( $errors ) > 0 )
                 <ul class="alert alert-danger">
                     @foreach($errors->all() as $error)
                         <li> {{ $error }} </li>
                         @endforeach
-                    </ul>
+                </ul>
             @endif
         <!-- /.box-body -->
     </div>
@@ -42,4 +40,3 @@
 </section>
 <!-- /.content -->
 @endsection
-

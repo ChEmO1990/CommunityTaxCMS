@@ -8,15 +8,20 @@
 .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:5px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
 .tg .tg-yw4l{vertical-align:top}
 .resp-image { max-width: 100%; height: auto; } 
-</style>
-<style>
+.noborder{ border:none; }
+.headertekst{ text-align: center; }
+
 table {
 	table-layout: fixed;
 	width: 100%;
 	border-collapse: collapse;
 	cellspacing: 0; 
 	cellpadding: 0;
-	border: none;
+	border: 1px;
+}
+
+tr.noBorder td {
+  border: 0;
 }
 
 thead th:nth-child(1) {
@@ -39,10 +44,11 @@ th, td {
 	padding: 2px;
 }
 </style>
+
 </head>
 <body>
-	<h3>WELCOME TO COMMUNITY TAX!</h3>
-	<table class="tg">
+	<h3><u>WELCOME TO COMMUNITY TAX!</u></h3>
+	<table>
 		<tr>
 			<th><b>Full Name: {{ $employee->name }} </b></th>
 			<th rowspan="4"> <img src="img/logo.png" class="resp-image"></th>
@@ -58,21 +64,26 @@ th, td {
 		<tr>
 			<th><b>Your new email: {{ $employee->email }} </b></th>
 		</tr>
+	</table>
+	<table class="tg">
 		<tr>
-			<th colspan="2"><b>Your Direct Line is: {{ $employee->did }} Your Extension is: {{ $employee->ext }} </b></th>
+			@if($employee->did == '')
+			<th colspan="2"><b>Your Direct Line is: N/A Your Extension is: {{ $employee->ext }} </b></th>
+			@else
+			<th colspan="2"><b>Your Direct Line is: {{ $employee->did }} Your Extension is: {{ $employee->ext }} </b></th> 
+			@endif
 		</tr>
 	</table>
-<br/>
 
-<table class="tg">
+	<table border="1" width: 100% rules="cols">
 		<tr>
-			<th><h3>USERNAMES AND PASSWORDS</h3><b>(THIS INFORMATION IS CONFIDENTIAL)</b></th>
-			<th><h3>Domain: CTR</h3></th>
+			<th><h3><u>USERNAMES AND PASSWORDS</u></h3><b>(THIS INFORMATION IS CONFIDENTIAL)</b></th>
+			<th><h2 class="headertekst">Domain: CTR</h2></th>
 		</tr>
 
 		<tr>
-			<th><b>Network Coount </b></th>
-			<th><b>Upton First Login use:</b></th>
+			<th><b><u>Network Account</u></b></th>
+			<th><h2 class="headertekst"><u>Upon First Login use:</u></h2></th>
 		</tr>
 
 		<tr>
@@ -84,10 +95,28 @@ th, td {
 			<th><b>Password: Ctaxit17! (Please note the upper case "C") </b></th>
 			<th><b>Password: Ctaxit17!</b></th>
 		</tr>
-		<tr>
-			<th colspan="2"><b></b></th>
-		</tr>
 	</table>
 
+	<table border="1" width: 100%>
+		<tr>
+			<th>khhkhkhkjhk</th>
+			<th></th>
+		</tr>
+
+		<tr>
+			<th><b><u>Network Account</u></b></th>
+			<th>dsfgdfgdfgfdgfdgsfdgsdfgsdgsfgsdfgsdfgfdg</th>
+		</tr>
+
+		<tr>
+			<th><b>Username: anhernandez </b></th>
+			<th></th>
+		</tr>
+
+		<tr>
+			<th><b>Password: Ctaxit17! (Please note the upper case "C") </b></th>
+			<th></th>
+		</tr>
+	</table>
 </body>
 </html>

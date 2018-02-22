@@ -257,11 +257,17 @@ class EmployeeController extends Controller
      * @param  \App\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function edit(Employee $employee)
+    public function edit($id)
     {
-        //
+        $employee = Employee::find($id);
+        $accounts = Employee::find($id)->accounts;
+        return view('employee.termination')
+        ->with('employee', $employee)
+        ->with('accounts', $accounts)
+        ->with('page_title', 'Termination Form')
+        ->with('page_description', '');
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -269,9 +275,60 @@ class EmployeeController extends Controller
      * @param  \App\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Employee $employee)
+    public function update(Request $request, $id)
     {
-        //
+        $employee = Employee::find($id);
+
+        //Employee is active now. Means that I need update only the basic information
+        if( $employee->status == true ) {
+            echo 'Employee is active now. Means that I need to update the termination status';
+        } else {
+            echo 'Employee is not active now. Means that I need update only the basic information';
+        }
+    }
+
+    public function termination(Request $request, $id)
+    {
+        $employee = Employee::find($id);
+
+        $rules = [ 
+            'term_date' => 'required',
+            'fwd_to_name' => 'required', 
+            'fwd_to_ext' => 'required', 
+            'fwd_to_mail' => 'required',
+        ];
+
+        $this->validate($request, $rules);
+
+        $term_date = $request['term_date'];
+        $fwd_to_name = $request['fwd_to_name'];
+        $fwd_to_ext = $request['fwd_to_ext'];
+        $fwd_to_mail = $request['fwd_to_mail'];
+
+        //We save the basic parameters first
+        $employee->status = false; //This is the most important parameter
+        $employee->term_date = $term_date;
+        $employee->fwd_to_name = $fwd_to_name;
+        $employee->fwd_to_ext = $fwd_to_ext;
+        $employee->fwd_to_mail = $fwd_to_mail;
+
+        $run_script = $request['run_script'];
+        $run_script = $request['delete_calendar'];
+        $run_script = $request['move_task_logic'];
+        $run_script = $request['release_sms'];
+        $run_script = $request['set_logic_inactive'];
+        $run_script = $request['dis_account'];
+        $run_script = $request['rel_extension'];
+        $run_script = $request['check_mac'];
+        $run_script = $request['go_live'];
+        $run_script = $request['del_hylafax'];
+        $run_script = $request['printer_scanner'];
+        $run_script = $request['rem_from_scandocs'];
+        $run_script = $request['movedocs'];
+        $run_script = $request['remove_docstar'];
+        $run_script = $request['rem_frm_trueportal'];
+        $run_script = $request['rem_frm_ADT'];
+        $run_script = $request['rem_from_website'];
     }
 
     /**
@@ -282,7 +339,7 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee)
     {
-        //
+
     }
 
     public function download(Employee $employee) {

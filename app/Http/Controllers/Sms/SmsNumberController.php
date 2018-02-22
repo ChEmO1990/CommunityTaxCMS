@@ -135,9 +135,9 @@ class SmsNumberController extends Controller
         $sms->sms_number = $request->input('sms_number');
         $sms->assign_to = $request->input('assign_to');
         $sms->comment = $request->input('comment');
-        $sms->status = $request->input('status');
+        
 
-        if(strtolower($sms->status) == strtolower('open') || empty($sms->status) ) {
+        if(strtolower($sms->assign_to) == strtolower('open') || empty($sms->assign_to) ) {
             $sms->status = true;
         } else {
             $sms->status = false;
