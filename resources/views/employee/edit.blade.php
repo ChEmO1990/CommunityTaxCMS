@@ -3,6 +3,15 @@
 @section('content')
 @include('layouts.modal')
 <section class="content">
+  @if ($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach ($errors->all() as $error)
+      <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+  @endif
   <div class="box box-primary">
     <div class="box-body">
      <!-- title row -->
@@ -11,75 +20,49 @@
         <h2 class="page-header">
           <i class="fa fa-user-circle-o"></i> {{ $employee->name }}
         </h2>
-        </div>
-        <!-- /.col -->
+      </div>
+      <!-- /.col -->
+    </div>
+
+    <div class="panel-body">
+      {!! Form::open(['action' => ['Employee\EmployeeController@update', $employee->id], 'method'=>'POST']) !!}
+      <div class="form-group">
+        {!! Form::label('network_account', 'Network Account') !!} 
+        {!! Form::text('network_account', $employee->network_account, ['class'=>'form-control']) !!}  
       </div>
 
-      @if( $employee->status === 0 )
-      <div class="callout callout-info">
-        <h4>Transfer Information</h4>
-        <!-- info row -->
-        <div class="row invoice-info">
-          <div class="col-sm-4 invoice-col">
-            <strong>Forward Name To:</strong><p> {{ $employee->fwd_to_name }} </p>
-            <address>
-              <strong>Forward Extension To:</strong><p> {{ $employee->fwd_to_ext }} </p>
-              <strong>Forward Mails to:</strong><p> {{ $employee->fwd_to_mail }} </p>
-            </address>
-          </div>
-        </div>
+      <div class="form-group">
+        {!! Form::label('email', 'Email') !!} 
+        {!! Form::text('email', $employee->email, ['class'=>'form-control']) !!}  
       </div>
-      @endif
 
-      <!-- /.row -->
+      <div class="form-group">
+        {!! Form::label('clone_account', 'Clone Account') !!} 
+        {!! Form::text('clone_account', $employee->clone_account, ['class'=>'form-control']) !!}  
+      </div>
 
-      <div class="panel-body">
-        {!! Form::open() !!}
-        <div class="form-group">
-          {!! Form::label('network_account', 'Network Account') !!} 
-          {!! Form::label('network_account', $employee->network_account, ['class'=>'form-control']) !!}  
+      <div class="form-group">
+            <label>Location</label>
+            <select class="form-control" name="location">
+                <option>Chicago</option>
+                <option>Cancun</option>
+                <option>Puerto Rico</option>
+            </select>
         </div>
 
-        <div class="form-group">
-          {!! Form::label('email', 'Email') !!} 
-          {!! Form::label('email', $employee->email, ['class'=>'form-control']) !!}  
-        </div>
+      <div class="form-group">
+        {!! Form::label('job_title', 'Job Title') !!} 
+        {!! Form::text('job_title', $employee->job_title, ['class'=>'form-control']) !!}  
+      </div>
 
-        <div class="form-group">
-          {!! Form::label('clone_account', 'Clone Account') !!} 
-          {!! Form::label('clone_account', $employee->clone_account, ['class'=>'form-control']) !!}  
-        </div>
+      <div class="form-group">
+        {!! Form::label('did', 'DID') !!} 
+        {!! Form::text('did', $employee->did, ['class'=>'form-control']) !!} 
+      </div>
 
-        <div class="form-group">
-          {!! Form::label('location', 'Location') !!} 
-          {!! Form::label('location', $employee->location, ['class'=>'form-control']) !!}  
-        </div>
-
-        <div class="form-group">
-          {!! Form::label('job_title', 'Job Title') !!} 
-          {!! Form::label('job_title', $employee->job_title, ['class'=>'form-control']) !!}  
-        </div>
-
-        <div class="form-group">
-          {!! Form::label('did', 'DID') !!} 
-
-          @if($employee->did == '')
-          {!! Form::label('did', 'N/A', ['class'=>'form-control']) !!} 
-          @else 
-          {!! Form::label('did', $employee->did, ['class'=>'form-control']) !!} 
-          @endif
-        </div>
-
-        <div class="form-group">
-          {!! Form::label('ext', 'Extension') !!} 
-
-          @if($employee->ext == '')
-          {!! Form::label('ext', 'N/A', ['class'=>'form-control']) !!} 
-          @else 
-          {!! Form::label('ext', $employee->ext, ['class'=>'form-control']) !!} 
-          @endif
-        </div>
-        {!! Form::close() !!}
+      <div class="form-group">
+        {!! Form::label('ext', 'Extension') !!} 
+        {!! Form::text('ext', $employee->ext, ['class'=>'form-control']) !!} 
       </div>
 
       <!-- /.row -->
@@ -98,11 +81,11 @@
                 <th>Username</th>
                 <th>Password</th>
                 <tr>
-                  @foreach($accounts as $account)
+                  @foreach($accounts as $key=>$account)
                   <tr>  
-                    <td>{{ $account->type_account }} </td>
-                    <td>{{ $account->user_name }} </td>
-                    <td>{{ $account->password }} </td>
+                    <td> {!! Form::text('type_account', $account->type_account, ['class'=>'form-control']) !!} </td>
+                    <td> {!! Form::text('username'.$key, $account->user_name, ['class'=>'form-control']) !!} </td>
+                    <td> {!! Form::text('password'.$key, $account->password, ['class'=>'form-control']) !!} </td>
                     <tr>
                       @endforeach
                     </tr>
@@ -120,10 +103,11 @@
             <!-- this row will not appear when printing -->
             <div class="row no-print">
               <div class="col-xs-12">
-                <a href="{{ route('employees.edit', $employee->id) }}">
-                  <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">Edit Information</button>
+                <button type="submit" class="btn btn-primary pull-right" style="margin-right: 5px;">Save Information</button>
               </div>
             </div>
+            {!! Form::hidden('_method', 'PUT') !!}
+            {!! Form::close() !!}
           </div>
         </div>
       </section>

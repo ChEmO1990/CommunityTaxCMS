@@ -32,13 +32,13 @@ class EmployeeController extends Controller
         if(empty($input) ) {
             $employees = Employee::paginate(20);
             return view('employee.index', compact('employees'))->with('page_title', 'List of Employees')
-                                         ->with('page_description', 'You can see all employees.');
+            ->with('page_description', 'You can see all employees.');
         } else {
             $employees = Employee::latest()
             ->search($input)
             ->paginate(20);
             return view('employee.index', compact('employees', 'input'))->with('page_title', 'List of Employees')
-                                         ->with('page_description', 'You can see all employees.');
+            ->with('page_description', 'You can see all employees.');
         }
     }
 
@@ -50,7 +50,7 @@ class EmployeeController extends Controller
     public function create()
     {
         return view('employee.new_hire')->with('page_title', 'Create New Employee')
-                                         ->with('page_description', 'This section let you create a new employee.');
+        ->with('page_description', 'This section let you create a new employee.');
     }
 
     /**
@@ -248,7 +248,7 @@ class EmployeeController extends Controller
     {
         $accounts = Employee::find($employee->id)->accounts;
         return view('employee.show', compact('employee'), compact('accounts'))->with('page_title', 'Detailed Information')
-                                         ->with('page_description', '');
+        ->with('page_description', '');
     }
 
     /**
@@ -261,11 +261,20 @@ class EmployeeController extends Controller
     {
         $employee = Employee::find($id);
         $accounts = Employee::find($id)->accounts;
-        return view('employee.termination')
-        ->with('employee', $employee)
-        ->with('accounts', $accounts)
-        ->with('page_title', 'Termination Form')
-        ->with('page_description', '');
+
+        if( $employee->status === 1 ) {
+            return view('employee.edit')
+            ->with('employee', $employee)
+            ->with('accounts', $accounts)
+            ->with('page_title', 'Edit Active Employee Form')
+            ->with('page_description', '');
+        } else {
+            return view('employee.edit_inactive_employee')
+            ->with('employee', $employee)
+            ->with('accounts', $accounts)
+            ->with('page_title', 'Edit Inactive Employee Form')
+            ->with('page_description', '');
+        }
     }
     
     /**
@@ -278,12 +287,109 @@ class EmployeeController extends Controller
     public function update(Request $request, $id)
     {
         $employee = Employee::find($id);
+        $accounts = Employee::find($id)->accounts;
 
-        //Employee is active now. Means that I need update only the basic information
-        if( $employee->status == true ) {
-            echo 'Employee is active now. Means that I need to update the termination status';
+        $rules = [ 
+            'network_account' => 'required', 
+            'email'  => 'required', 
+            'clone_account' => 'required',
+            'location' => 'required',
+            'job_title' => 'required',
+            'ext' => 'required',
+        ];
+
+        $this->validate($request, $rules);
+
+        $network_account = $request['network_account'];
+        $email = $request['email'];
+        $clone_account = $request['clone_account'];
+        $location = $request['location'];
+        $job_title = $request['job_title'];
+        $did = $request['did'];
+        $ext = $request['ext'];
+        $fwd_to_name = $request['fwd_to_name'];
+        $fwd_to_ext = $request['fwd_to_ext'];
+        $fwd_to_mail = $request['fwd_to_mail'];
+
+        if( $employee->status === 1 ) {
+        //We save the information
+            $employee->network_account = $network_account;
+            $employee->email = $email;
+            $employee->clone_account = $clone_account;
+            $employee->location = $location;
+            $employee->job_title = $job_title;
+            $employee->did = $did;
+            $employee->ext = $ext;
+            $employee->save();
+
+        //Get parameters from foreach view Manually
+            $username0 = $request['username0'];
+            $username1 = $request['username1'];
+            $username2 = $request['username2'];
+            $username3 = $request['username3'];
+            $username4 = $request['username4'];
+            $username5 = $request['username5'];
+            $username6 = $request['username6'];
+            $username7 = $request['username7'];
+
+            $password0 = $request['password0'];
+            $password1 = $request['password1'];
+            $password2 = $request['password2'];
+            $password3 = $request['password3'];
+            $password4 = $request['password4'];
+            $password5 = $request['password5'];
+            $password6 = $request['password6'];
+            $password7 = $request['password7'];
+
+            Account::where('employee_id', $id)
+            ->where('type_account', Account::TYPE_PERSONAL_ACCOUNT)
+            ->update(['user_name' => $username0,'password' => $password0]);
+
+            Account::where('employee_id', $id)
+            ->where('type_account', Account::TYPE_3CLOGICS_ACCOUNT)
+            ->update(['user_name' => $username1,'password' => $password1]);
+
+            Account::where('employee_id', $id)
+            ->where('type_account', Account::TYPE_LOGICS_ACCOUNT)
+            ->update(['user_name' => $username2,'password' => $password2]);
+
+            Account::where('employee_id', $id)
+            ->where('type_account', Account::TYPE_OUTLOOK_ACCOUNT)
+            ->update(['user_name' => $username3,'password' => $password3]);
+
+            Account::where('employee_id', $id)
+            ->where('type_account', Account::TYPE_SPARK_ACCOUNT)
+            ->update(['user_name' => $username4,'password' => $password4]);
+
+            Account::where('employee_id', $id)
+            ->where('type_account', Account::TYPE_HYLAFAX_ACCOUNT)
+            ->update(['user_name' => $username5,'password' => $password5]);
+
+            Account::where('employee_id', $id)
+            ->where('type_account', Account::TYPE_PHONESYSTEM_ACCOUNT)
+            ->update(['user_name' => $username6,'password' => $password6]);
+
+            Account::where('employee_id', $id)
+            ->where('type_account', Account::TYPE_DOCSTAR_ACCOUNT)
+            ->update(['user_name' => $username7,'password' => $password7]);
+
+            alert()->success('Active Employee Edit', 'The record has been edited successfully.');
+            return redirect()->route('employees.index');
         } else {
-            echo 'Employee is not active now. Means that I need update only the basic information';
+            $employee->network_account = $network_account;
+            $employee->email = $email;
+            $employee->clone_account = $clone_account;
+            $employee->location = $location;
+            $employee->job_title = $job_title;
+            $employee->did = $did;
+            $employee->ext = $ext;
+            $employee->fwd_to_name = $fwd_to_name;
+            $employee->fwd_to_ext = $fwd_to_ext;
+            $employee->fwd_to_mail = $fwd_to_mail;
+            $employee->save();
+
+            alert()->success('Inactive Employee Edit', 'The record has been edited successfully.');
+            return redirect()->route('employees.index');
         }
     }
 

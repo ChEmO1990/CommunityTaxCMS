@@ -133,7 +133,7 @@
                   <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">Edit Information</button>
                 </a>
 
-                <a href="{{ route('employees.edit', $employee->id) }}">
+                <a href="{{ action('Download\DownloadController@downloadPDF', $employee->id) }}">
                   <button type="button" class="btn btn-success pull-right" style="margin-right: 5px;">Generate PDF</button>
                 </a>
                 @else

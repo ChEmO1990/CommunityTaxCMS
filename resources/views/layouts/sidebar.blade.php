@@ -34,8 +34,6 @@
           </a>
           <ul class="treeview-menu">
             <li class="{{ Request::is('employees')? "active":""}}"><a href="{{ route('employees.create') }}"><i class="fa fa-users"></i> <span>New Hire Form</span></a></li>
-
-            <<li class="{{ Request::is('register')? "active":""}}"><a href="{{ route('register') }}"><i class="fa fa-user-times"></i> <span>Termination Form</span></a></li>
           </ul>
         </li>
       </ul>
