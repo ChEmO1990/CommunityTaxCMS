@@ -3,46 +3,46 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:5px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:5px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-.tg .tg-yw4l{vertical-align:top}
-.resp-image { max-width: 100%; height: auto; } 
-.noborder{ border:none; }
-.headertekst{ text-align: center; }
+	.tg  {border-collapse:collapse;border-spacing:0;}
+	.tg td{font-family:Arial, sans-serif;font-size:14px;padding:5px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+	.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:5px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+	.tg .tg-yw4l{vertical-align:top}
+	.resp-image { max-width: 100%; height: auto; } 
+	.noborder{ border:none; }
+	.headertekst{ text-align: center; }
 
-table {
-	table-layout: fixed;
-	width: 100%;
-	border-collapse: collapse;
-	cellspacing: 0; 
-	cellpadding: 0;
-	border: 1px;
-}
+	table {
+		table-layout: fixed;
+		width: 100%;
+		border-collapse: collapse;
+		cellspacing: 0; 
+		cellpadding: 0;
+		border: 1px;
+	}
 
-tr.noBorder td {
-  border: 0;
-}
+	tr.noBorder td {
+		border: 0;
+	}
 
-thead th:nth-child(1) {
-	width: 30%;
-}
+	thead th:nth-child(1) {
+		width: 30%;
+	}
 
-thead th:nth-child(2) {
-	width: 20%;
-}
+	thead th:nth-child(2) {
+		width: 20%;
+	}
 
-thead th:nth-child(3) {
-	width: 15%;
-}
+	thead th:nth-child(3) {
+		width: 15%;
+	}
 
-thead th:nth-child(4) {
-	width: 35%;
-}
+	thead th:nth-child(4) {
+		width: 35%;
+	}
 
-th, td {
-	padding: 2px;
-}
+	th, td {
+		padding: 2px;
+	}
 </style>
 
 </head>
@@ -75,48 +75,28 @@ th, td {
 		</tr>
 	</table>
 
-	<table border="1" width: 100% rules="cols">
-		<tr>
-			<th><h3><u>USERNAMES AND PASSWORDS</u></h3><b>(THIS INFORMATION IS CONFIDENTIAL)</b></th>
-			<th><h2 class="headertekst">Domain: CTR</h2></th>
-		</tr>
-
-		<tr>
-			<th><b><u>Network Account</u></b></th>
-			<th><h2 class="headertekst"><u>Upon First Login use:</u></h2></th>
-		</tr>
-
-		<tr>
-			<th><b>Username: anhernandez </b></th>
-			<th><b>User: anhernandez</b></th>
-		</tr>
-
-		<tr>
-			<th><b>Password: Ctaxit17! (Please note the upper case "C") </b></th>
-			<th><b>Password: Ctaxit17!</b></th>
-		</tr>
-	</table>
-
-	<table border="1" width: 100%>
-		<tr>
-			<th>khhkhkhkjhk</th>
-			<th></th>
-		</tr>
-
-		<tr>
-			<th><b><u>Network Account</u></b></th>
-			<th>dsfgdfgdfgfdgfdgsfdgsdfgsdgsfgsdfgsdfgfdg</th>
-		</tr>
-
-		<tr>
-			<th><b>Username: anhernandez </b></th>
-			<th></th>
-		</tr>
-
-		<tr>
-			<th><b>Password: Ctaxit17! (Please note the upper case "C") </b></th>
-			<th></th>
-		</tr>
-	</table>
-</body>
-</html>
+	<table class="tg">
+		<tbody>
+			<tr>
+				<td rowspan="3">
+					<h3><u>USERNAMES AND PASSWORDS</u></h3>
+					<h4>(THIS INFORMATION IS CONFIDENTIAL)</h4>
+					<b><u>Network Account</u><b/>
+						<b>Username: {{ $employee->network_account}} <b/>
+							<b>Password: {{ $employee->accounts
+								->where('employee_id', $employee->id)
+								->where('type_account', 'Personal Account')->get('user_name') }}
+								<b/> <br/>
+							</td>
+							<td>Domain: CTR</td>
+						</tr>
+						<tr>
+							<td>Upon First Login use:</td>
+						</tr>
+						<tr>
+							<td>Username: anhernandez <br/> Password: Ctaxit17!</td>
+						</tr>
+					</tbody>
+				</table>
+			</body>
+			</html>
