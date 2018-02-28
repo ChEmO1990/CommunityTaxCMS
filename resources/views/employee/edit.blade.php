@@ -83,7 +83,7 @@
                 <tr>
                   @foreach($accounts as $key=>$account)
                   <tr>  
-                    <td> {!! Form::text('type_account', $account->type_account, ['class'=>'form-control']) !!} </td>
+                    <td> {{ $account->type_account }} </td>
                     <td> {!! Form::text('username'.$key, $account->user_name, ['class'=>'form-control']) !!} </td>
                     <td> {!! Form::text('password'.$key, $account->password, ['class'=>'form-control']) !!} </td>
                     <tr>
@@ -97,9 +97,6 @@
               <!-- /.col -->
             </div>
             @endif
-
-            <!-- /.row -->
-
             <!-- this row will not appear when printing -->
             <div class="row no-print">
               <div class="col-xs-12">
