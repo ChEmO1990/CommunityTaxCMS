@@ -16,10 +16,10 @@ Auth::routes();
 Route::get('/', 'Home\HomeController@index');
 Route::resource('dashboard', 'Dashboard\DashboardController');
 Route::resource('sms', 'Sms\SmsNumberController');
-Route::resource('employees', 'Employee\EmployeeController');
+Route::resource('employees', 'Employee\EmployeeController', ['except' => ['edit']]);
+Route::get('employees/edit/{id}/{termination}', ['as' => 'employees.edit', 'uses' => 'Employee\EmployeeController@edit']);
 Route::get('employees/download/{id}', 'Download\DownloadController@downloadPDF')->middleware('auth');
 Route::get('employees/termination/{id}', 'Employee\EmployeeController@termination')->middleware('auth');
-
 
 Route::get('/seed/db', function () {
 	$json = '[

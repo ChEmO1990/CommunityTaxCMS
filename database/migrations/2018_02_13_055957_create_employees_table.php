@@ -47,7 +47,8 @@ class CreateEmployeesTable extends Migration
             $table->boolean('move_tasks_in_logics')->default(false);
             $table->boolean('release_sms')->default(false);
             $table->boolean('set_logics_to_inactive')->default(false); 
-            $table->boolean('dis_empl_account')->default(false); 
+            $table->boolean('dis_empl_account')->default(false);
+            $table->boolean('rel_ext')->default(false);  
             $table->boolean('check_mac')->default(false); 
             $table->boolean('golive')->default(false); 
             $table->boolean('removehylafax_account')->default(false); 
@@ -55,7 +56,6 @@ class CreateEmployeesTable extends Migration
             $table->boolean('remove_scandocs_folder')->default(false); 
             $table->boolean('movedocs_autoimport')->default(false); 
             $table->boolean('remove_docstar_inbox')->default(false); 
-            
             $table->boolean('remfrm_trueportal')->default(false); 
             $table->boolean('remfrm_adt')->default(false); 
             $table->boolean('remfrm_website')->default(false); 

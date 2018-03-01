@@ -257,26 +257,34 @@ class EmployeeController extends Controller
      * @param  \App\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, $termination)
     {
         $employee = Employee::find($id);
         $accounts = Employee::find($id)->accounts;
 
-        if( $employee->status === 1 ) {
-            return view('employee.edit')
+        if( $termination == true ) {
+            return view('employee.termination')
             ->with('employee', $employee)
             ->with('accounts', $accounts)
-            ->with('page_title', 'Edit Active Employee Form')
+            ->with('page_title', 'Termination Form')
             ->with('page_description', '');
         } else {
-            return view('employee.edit_inactive_employee')
-            ->with('employee', $employee)
-            ->with('accounts', $accounts)
-            ->with('page_title', 'Edit Inactive Employee Form')
-            ->with('page_description', '');
+            if( $employee->status == 1 ) {
+                return view('employee.edit')
+                ->with('employee', $employee)
+                ->with('accounts', $accounts)
+                ->with('page_title', 'Edit Active Employee Form')
+                ->with('page_description', '');
+            } else {
+                return view('employee.edit_inactive_employee')
+                ->with('employee', $employee)
+                ->with('accounts', $accounts)
+                ->with('page_title', 'Edit Inactive Employee Form')
+                ->with('page_description', '');
+            }
         }
     }
-    
+
     /**
      * Update the specified resource in storage.
      *
@@ -424,6 +432,7 @@ class EmployeeController extends Controller
         $release_sms = $request['release_sms'];
         $set_logics_to_inactive = $request['set_logics_to_inactive'];
         $dis_empl_account = $request['dis_empl_account'];
+        $rel_ext = $request['rel_ext'];
         $check_mac = $request['check_mac'];
         $golive = $request['golive'];
         $removehylafax_account = $request['removehylafax_account'];
@@ -459,6 +468,10 @@ class EmployeeController extends Controller
             $employee->dis_empl_account = true;
         }
 
+        if( !empty($rel_ext) ) {
+            $employee->rel_ext = true;
+        }
+        
         if( !empty($check_mac) ) {
             $employee->check_mac = true;
         }

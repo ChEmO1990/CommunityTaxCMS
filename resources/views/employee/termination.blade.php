@@ -98,71 +98,78 @@
 
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="check_mac">
+            <input type="checkbox" name="rel_ext">
             RelExt
           </label>
         </div>
 
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="golive">
+            <input type="checkbox" name="check_mac">
             CheckMac 
           </label>
         </div>
 
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="removehylafax_account">
+            <input type="checkbox" name="golive">
             UseGoLive
           </label>
         </div>
 
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="printer_scanner">
+            <input type="checkbox" name="removehylafax_account">
             DelHylaFAXAcct
           </label>
         </div>
 
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="remove_scandocs_folder">
+            <input type="checkbox" name="printer_scanner">
             Printer/Scanner
           </label>
         </div>
 
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="movedocs_autoimport">
+            <input type="checkbox" name="remove_scandocs_folder">
             RemfrmScanDocsFolder
           </label>
         </div>
 
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="remove_docstar_inbox">
+            <input type="checkbox" name="movedocs_autoimport">
             MoveDocs/RemAutoImport
           </label>
         </div>
 
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="remfrm_trueportal">
+            <input type="checkbox" name="remove_docstar_inbox">
             Del DS Inbox
           </label>
         </div>
 
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="remfrm_adt">
+            <input type="checkbox" name="remfrm_trueportal">
             RemFrmTruePortal
           </label>
         </div>
 
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="remfrm_website">
+            <input type="checkbox" name="remfrm_adt">
             RemfrmADT
+          </label>
+        </div>
+
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="remfrm_website">
+            RemfrmWebsite
           </label>
         </div>
         
