@@ -262,7 +262,7 @@ class EmployeeController extends Controller
         $employee = Employee::find($id);
         $accounts = Employee::find($id)->accounts;
 
-        if( $termination == true ) {
+        if( $termination == 'yes' ) {
             return view('employee.termination')
             ->with('employee', $employee)
             ->with('accounts', $accounts)

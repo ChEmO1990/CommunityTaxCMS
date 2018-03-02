@@ -446,11 +446,11 @@
                   <div class="row no-print">
                     <div class="col-xs-12">
                       @if( $employee->status == 1 ) 
-                      <a href="{{ route('employees.edit',['id' => $employee->id, 'termination' => true]) }}">
+                      <a href="{{ route('employees.edit',['id' => $employee->id, 'termination' => 'yes']) }}">
                         <button type="button" class="btn btn-danger pull-right">Termination</button>
                       </a>
 
-                      <a href="{{ route('employees.edit',['id' => $employee->id, 'termination' => false]) }}">
+                      <a href="{{ route('employees.edit',['id' => $employee->id, 'termination' => 'no']) }}">
                         <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">Edit Information</button>
                       </a>
 
@@ -458,7 +458,7 @@
                         <button type="button" class="btn btn-success pull-right" style="margin-right: 5px;">Generate PDF</button>
                       </a>
                       @else
-                      <a href="{{ route('employees.edit',['id' => $employee->id, 'termination' => false]) }}">
+                      <a href="{{ route('employees.edit',['id' => $employee->id, 'termination' => 'no']) }}">
                         <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">Edit Information</button>
                       </a>
                       @endif
