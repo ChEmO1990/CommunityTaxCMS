@@ -144,7 +144,7 @@
                           <tr>  
                           <td>Create Logics Account</td>
                           <td>
-                            @if($employee->logics === 1)
+                            @if($employee->logics_account === 1)
                               <span class="label label-success">Checked</span>
                             @else
                               <span class="label label-danger">Not Checked</span>
@@ -177,7 +177,7 @@
                           <tr>  
                           <td>Prog Mon for Tax Preps, EA's, and Negotiators</td>
                           <td>
-                            @if($employee->tax_preparer_eas === 1)
+                            @if($employee->tax_preparers_eas === 1)
                               <span class="label label-success">Checked</span>
                             @else
                               <span class="label label-danger">Not Checked</span>
@@ -210,7 +210,7 @@
                           <tr>  
                           <td>Create DS Acct, Inbox, Auto Import</td>
                           <td>
-                            @if($employee->docstar === 1)
+                            @if($employee->ds_account === 1)
                               <span class="label label-success">Checked</span>
                             @else
                               <span class="label label-danger">Not Checked</span>
@@ -221,7 +221,7 @@
                           <tr>  
                           <td>Add User to Scanner/Fax/Printers</td>
                           <td>
-                            @if($employee->user_scanner === 1)
+                            @if($employee->user_to_scanner === 1)
                               <span class="label label-success">Checked</span>
                             @else
                               <span class="label label-danger">Not Checked</span>

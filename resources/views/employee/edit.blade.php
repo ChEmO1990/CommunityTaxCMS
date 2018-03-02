@@ -42,13 +42,13 @@
       </div>
 
       <div class="form-group">
-            <label>Location</label>
-            <select class="form-control" name="location">
-                <option>Chicago</option>
-                <option>Cancun</option>
-                <option>Puerto Rico</option>
-            </select>
-        </div>
+        <label>Location</label>
+        <select class="form-control" name="location">
+          <option>Chicago</option>
+          <option>Cancun</option>
+          <option>Puerto Rico</option>
+        </select>
+      </div>
 
       <div class="form-group">
         {!! Form::label('job_title', 'Job Title') !!} 
@@ -96,17 +96,121 @@
               </div>
               <!-- /.col -->
             </div>
-            @endif
-            <!-- this row will not appear when printing -->
-            <div class="row no-print">
-              <div class="col-xs-12">
-                <button type="submit" class="btn btn-primary pull-right" style="margin-right: 5px;">Save Information</button>
+
+            <div class="form-group with-border">
+              <h3 class="box-title">Checklist</h3>
+
+              <div class="checkbox">
+                <label>
+                  @if($employee->clogics_account === 1)
+                  <input type="checkbox" name="clogics_account" checked="checked">
+                  @else
+                  <input type="checkbox" name="clogics_account">
+                  @endif
+                  Create 3CLogics Account
+                </label>
               </div>
+
+              <div class="checkbox">
+                <label>
+                 @if($employee->logics_account === 1)
+                 <input type="checkbox" name="logics_account" checked="checked">
+                 @else
+                 <input type="checkbox" name="logics_account">
+                 @endif
+                 Create Logics Account
+               </label>
+             </div>
+
+             <div class="checkbox">
+              <label>
+                @if($employee->assign_logics_sms === 1)
+                <input type="checkbox" name="assign_logics_sms" checked="checked">
+                @else
+                <input type="checkbox" name="assign_logics_sms">
+                @endif
+                Assign Logics SMS
+              </label>
             </div>
-            {!! Form::hidden('_method', 'PUT') !!}
-            {!! Form::close() !!}
+
+            <div class="checkbox">
+              <label>
+                @if($employee->tax_preparer_udfid === 1)
+                <input type="checkbox" name="tax_preparer_udfid" checked="checked">
+                @else
+                <input type="checkbox" name="tax_preparer_udfid">
+                @endif
+                If Tax Preparer add to UDFID 102 in IRSLogics
+              </label>
+            </div>
+
+            <div class="checkbox">
+              <label>
+                @if($employee->tax_preparers_eas === 1)
+                <input type="checkbox" name="tax_preparers_eas" checked="checked">
+                @else
+                <input type="checkbox" name="tax_preparers_eas">
+                @endif
+                Prog Mon for Tax Preps, EA's, and Negotiators
+              </label>
+            </div>
+
+            <div class="checkbox">
+              <label>
+                @if($employee->ifax_account === 1)
+                <input type="checkbox" name="ifax_account" checked="checked">
+                @else
+                <input type="checkbox" name="ifax_account">
+                @endif
+                Create I-Fax Account    
+              </label>
+            </div>
+
+            <div class="checkbox">
+              <label>
+                @if($employee->spark_account === 1)
+                <input type="checkbox" name="spark_account" checked="checked">
+                @else
+                <input type="checkbox" name="spark_account">
+                @endif
+                Create Spark Account 
+              </label>
+            </div>
+
+            <div class="checkbox">
+              <label>
+                @if($employee->ds_account === 1)
+                <input type="checkbox" name="ds_account" checked="checked">
+                @else
+                <input type="checkbox" name="ds_account">
+                @endif
+                Create DS Acct, Inbox, Auto Import
+              </label>
+            </div>
+
+            <div class="checkbox">
+              <label>
+                @if($employee->user_to_scanner === 1)
+                <input type="checkbox" name="user_to_scanner" checked="checked">
+                @else
+                <input type="checkbox" name="user_to_scanner">
+                @endif
+                Add User to Scanner/Fax/Printers
+              </label>
+            </div>
           </div>
+
+          @endif
+          <!-- this row will not appear when printing -->
+          <div class="row no-print">
+            <div class="col-xs-12">
+              <button type="submit" class="btn btn-primary pull-right" style="margin-right: 5px;">Save Information</button>
+            </div>
+          </div>
+          {!! Form::hidden('_method', 'PUT') !!}
+          {!! Form::close() !!}
         </div>
-      </section>
-      <!-- /.content -->
-      @endsection
+      </div>
+    </section>
+    <!-- /.content -->
+    @endsection

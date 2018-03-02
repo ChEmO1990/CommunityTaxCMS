@@ -80,16 +80,207 @@
         {!! Form::text('ext', $employee->ext, ['class'=>'form-control']) !!} 
       </div>
 
-      <!-- this row will not appear when printing -->
-      <div class="row no-print">
-        <div class="col-xs-12">
-          <button type="submit" class="btn btn-primary pull-right" style="margin-right: 5px;">Save Information</button>
+      <div class="form-group with-border">
+        <h3 class="box-title">Checklist</h3>
+
+        <div class="checkbox">
+          <label>
+            @if($employee->run_script === 1)
+            <input type="checkbox" name="run_script" checked="checked">
+            @else
+            <input type="checkbox" name="run_script">
+            @endif
+            Run Script
+          </label>
+        </div>
+
+        <div class="checkbox">
+          <label>
+           @if($employee->delete_app_calendar === 1)
+           <input type="checkbox" name="delete_app_calendar" checked="checked">
+           @else
+           <input type="checkbox" name="delete_app_calendar">
+           @endif
+           Delete Appt Calendar
+         </label>
+       </div>
+
+       <div class="checkbox">
+        <label>
+          @if($employee->move_tasks_in_logics === 1)
+          <input type="checkbox" name="move_tasks_in_logics" checked="checked">
+          @else
+          <input type="checkbox" name="move_tasks_in_logics">
+          @endif
+          MoveTasksInLogicsToMgr
+        </label>
+      </div>
+
+      <div class="checkbox">
+        <label>
+          @if($employee->release_sms === 1)
+          <input type="checkbox" name="release_sms" checked="checked">
+          @else
+          <input type="checkbox" name="release_sms">
+          @endif
+          ReleaseSMS#inSpreadsheet
+        </label>
+      </div>
+
+      <div class="checkbox">
+        <label>
+          @if($employee->set_logics_to_inactive === 1)
+          <input type="checkbox" name="set_logics_to_inactive" checked="checked">
+          @else
+          <input type="checkbox" name="set_logics_to_inactive">
+          @endif
+          SetLogicsToInactive
+        </label>
+      </div>
+
+      <div class="checkbox">
+        <label>
+          @if($employee->dis_empl_account === 1)
+          <input type="checkbox" name="dis_empl_account" checked="checked">
+          @else
+          <input type="checkbox" name="dis_empl_account">
+          @endif
+          DisEmplAcct
+        </label>
+      </div>
+
+      <div class="checkbox">
+        <label>
+          @if($employee->rel_ext === 1)
+          <input type="checkbox" name="rel_ext" checked="checked">
+          @else
+          <input type="checkbox" name="rel_ext">
+          @endif
+          RelExt  
+        </label>
+      </div>
+
+      <div class="checkbox">
+        <label>
+          @if($employee->check_mac === 1)
+          <input type="checkbox" name="check_mac" checked="checked">
+          @else
+          <input type="checkbox" name="check_mac">
+          @endif
+          CheckMac 
+        </label>
+      </div>
+
+      <div class="checkbox">
+        <label>
+          @if($employee->golive === 1)
+          <input type="checkbox" name="golive" checked="checked">
+          @else
+          <input type="checkbox" name="golive">
+          @endif
+          UseGoLive
+        </label>
+      </div>
+
+      <div class="checkbox">
+        <label>
+          @if($employee->removehylafax_account === 1)
+          <input type="checkbox" name="removehylafax_account" checked="checked">
+          @else
+          <input type="checkbox" name="removehylafax_account">
+          @endif
+          DelHylaFAXAcct
+        </label>
+
+        <div class="checkbox">
+          <label>
+            @if($employee->printer_scanner === 1)
+            <input type="checkbox" name="printer_scanner" checked="checked">
+            @else
+            <input type="checkbox" name="printer_scanner">
+            @endif
+            Printer/Scanner
+          </label>
+        </div>
+
+        <div class="checkbox">
+          <label>
+            @if($employee->remove_scandocs_folder === 1)
+            <input type="checkbox" name="remove_scandocs_folder" checked="checked">
+            @else
+            <input type="checkbox" name="remove_scandocs_folder">
+            @endif
+            RemfrmScanDocsFolder
+          </label>
+        </div>
+
+        <div class="checkbox">
+          <label>
+            @if($employee->movedocs_autoimport === 1)
+            <input type="checkbox" name="movedocs_autoimport" checked="checked">
+            @else
+            <input type="checkbox" name="movedocs_autoimport">
+            @endif
+            MoveDocs/RemAutoImport
+          </label>
+        </div>
+
+        <div class="checkbox">
+          <label>
+            @if($employee->remove_docstar_inbox === 1)
+            <input type="checkbox" name="remove_docstar_inbox" checked="checked">
+            @else
+            <input type="checkbox" name="remove_docstar_inbox">
+            @endif
+            Del DS Inbox
+          </label>
+        </div>
+
+        <div class="checkbox">
+          <label>
+            @if($employee->remfrm_trueportal === 1)
+            <input type="checkbox" name="remfrm_trueportal" checked="checked">
+            @else
+            <input type="checkbox" name="remfrm_trueportal">
+            @endif
+            RemFrmTruePortal
+          </label>
+        </div>
+
+        <div class="checkbox">
+          <label>
+            @if($employee->remfrm_adt === 1)
+            <input type="checkbox" name="remfrm_adt" checked="checked">
+            @else
+            <input type="checkbox" name="remfrm_adt">
+            @endif
+            RemfrmADT
+          </label>
+        </div>
+
+        <div class="checkbox">
+          <label>
+            @if($employee->remfrm_website === 1)
+            <input type="checkbox" name="remfrm_website" checked="checked">
+            @else
+            <input type="checkbox" name="remfrm_website">
+            @endif
+            RemfrmWebsite
+          </label>
         </div>
       </div>
-      {!! Form::hidden('_method', 'PUT') !!}
-      {!! Form::close() !!}
     </div>
+
+    <!-- this row will not appear when printing -->
+    <div class="row no-print">
+      <div class="col-xs-12">
+        <button type="submit" class="btn btn-primary pull-right" style="margin-right: 5px;">Save Information</button>
+      </div>
+    </div>
+    {!! Form::hidden('_method', 'PUT') !!}
+    {!! Form::close() !!}
   </div>
+</div>
 </section>
 <!-- /.content -->
 @endsection

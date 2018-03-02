@@ -319,6 +319,36 @@ class EmployeeController extends Controller
         $fwd_to_ext = $request['fwd_to_ext'];
         $fwd_to_mail = $request['fwd_to_mail'];
 
+        //Active User
+        $clogics_account = $request['clogics_account'];
+        $logics_account = $request['logics_account'];
+        $assign_logics_sms = $request['assign_logics_sms'];
+        $tax_preparer_udfid = $request['tax_preparer_udfid'];
+        $tax_preparers_eas = $request['tax_preparers_eas'];
+        $ifax_account = $request['ifax_account'];
+        $spark_account = $request['spark_account'];
+        $ds_account = $request['ds_account'];
+        $user_to_scanner = $request['user_to_scanner'];
+
+        //Inactive User
+        $run_script = $request['run_script'];
+        $delete_app_calendar = $request['delete_app_calendar'];
+        $move_tasks_in_logics = $request['move_tasks_in_logics'];
+        $release_sms = $request['release_sms'];
+        $set_logics_to_inactive = $request['set_logics_to_inactive'];
+        $dis_empl_account = $request['dis_empl_account'];
+        $rel_ext = $request['rel_ext'];
+        $check_mac = $request['check_mac'];
+        $golive = $request['golive'];
+        $removehylafax_account = $request['removehylafax_account'];
+        $printer_scanner = $request['printer_scanner'];
+        $remove_scandocs_folder = $request['remove_scandocs_folder'];
+        $movedocs_autoimport = $request['movedocs_autoimport'];
+        $remove_docstar_inbox = $request['remove_docstar_inbox'];
+        $remfrm_trueportal = $request['remfrm_trueportal'];
+        $remfrm_adt = $request['remfrm_adt'];
+        $remfrm_website = $request['remfrm_website'];
+        
         if( $employee->status === 1 ) {
         //We save the information
             $employee->network_account = $network_account;
@@ -328,7 +358,63 @@ class EmployeeController extends Controller
             $employee->job_title = $job_title;
             $employee->did = $did;
             $employee->ext = $ext;
-            $employee->save();
+
+            //We check checkbox current status
+        if( !empty($clogics_account) ) {
+            $employee->clogics_account = true;
+        } else {
+            $employee->clogics_account = false;
+        }
+
+        if( !empty($logics_account) ) {
+            $employee->logics_account = true;
+        } else {
+            $employee->logics_account = false;
+        }
+
+        if( !empty($assign_logics_sms) ) {
+            $employee->assign_logics_sms = true;
+        } else {
+            $employee->assign_logics_sms = false;
+        }
+
+        if( !empty($tax_preparer_udfid) ) {
+            $employee->tax_preparer_udfid = true;
+        } else {
+            $employee->tax_preparer_udfid = false;
+        }
+
+        if( !empty($tax_preparers_eas) ) {
+            $employee->tax_preparers_eas = true;
+        } else {
+            $employee->tax_preparers_eas = false;
+        }
+
+        if( !empty($ifax_account) ) {
+            $employee->ifax_account = true;
+        } else {
+            $employee->ifax_account = false;
+        }
+
+        if( !empty($spark_account) ) {
+            $employee->spark_account = true;
+        } else {
+            $employee->spark_account = false;
+        }
+
+        if( !empty($ds_account) ) {
+            $employee->ds_account = true;
+        } else {
+            $employee->ds_account = false;
+        }
+
+        if( !empty($user_to_scanner) ) {
+            $employee->user_to_scanner = true;
+        } else {
+            $employee->user_to_scanner = false;
+        }
+
+        $employee->save();
 
         //Get parameters from foreach view Manually
             $username0 = $request['username0'];
@@ -382,7 +468,7 @@ class EmployeeController extends Controller
             ->update(['user_name' => $username7,'password' => $password7]);
 
             alert()->success('Active Employee Edit', 'The record has been edited successfully.');
-            return redirect()->route('employees.index');
+            return redirect()->route('employees.show', ['id' => $employee->id]);
         } else {
             $employee->network_account = $network_account;
             $employee->email = $email;
@@ -394,10 +480,114 @@ class EmployeeController extends Controller
             $employee->fwd_to_name = $fwd_to_name;
             $employee->fwd_to_ext = $fwd_to_ext;
             $employee->fwd_to_mail = $fwd_to_mail;
+
+            //We check checkbox current status
+            if( !empty($run_script) ) {
+                $employee->run_script = true;
+            } else {
+                $employee->run_script = false;
+            }
+
+            if( !empty($delete_app_calendar) ) {
+                $employee->delete_app_calendar = true;
+            } else {
+                $employee->delete_app_calendar = false;
+            }
+
+            if( !empty($move_tasks_in_logics) ) {
+                $employee->move_tasks_in_logics = true;
+            } else {
+                $employee->move_tasks_in_logics = false;
+            }
+
+            if( !empty($release_sms) ) {
+                $employee->release_sms = true;
+            } else {
+                $employee->release_sms = false;
+            }
+
+            if( !empty($set_logics_to_inactive) ) {
+                $employee->set_logics_to_inactive = true;
+            } else {
+                $employee->set_logics_to_inactive = false;
+            }
+
+            if( !empty($dis_empl_account) ) {
+                $employee->dis_empl_account = true;
+            } else {
+                $employee->dis_empl_account = false;
+            }
+
+            if( !empty($rel_ext) ) {
+                $employee->rel_ext = true;
+            } else {
+                $employee->rel_ext = false;
+            }
+
+            if( !empty($check_mac) ) {
+                $employee->check_mac = true;
+            } else {
+                $employee->check_mac = false;
+            }
+
+            if( !empty($golive) ) {
+                $employee->golive = true;
+            } else {
+                $employee->golive = false;
+            }
+
+            if( !empty($removehylafax_account) ) {
+                $employee->removehylafax_account = true;
+            } else {
+                $employee->removehylafax_account = false;
+            }
+
+            if( !empty($printer_scanner) ) {
+                $employee->printer_scanner = true;
+            } else {
+                $employee->printer_scanner = false;
+            }
+
+            if( !empty($remove_scandocs_folder) ) {
+                $employee->remove_scandocs_folder = true;
+            } else {
+                $employee->remove_scandocs_folder = false;
+            }
+
+            if( !empty($movedocs_autoimport) ) {
+                $employee->movedocs_autoimport = true;
+            } else {
+                $employee->movedocs_autoimport = false;
+            }
+
+            if( !empty($remove_docstar_inbox) ) {
+                $employee->remove_docstar_inbox = true;
+            } else {
+                $employee->remove_docstar_inbox = false;
+            }
+
+            if( !empty($remfrm_trueportal) ) {
+                $employee->remfrm_trueportal = true;
+            } else {
+                $employee->remfrm_trueportal = false;
+            }
+
+            if( !empty($remfrm_adt) ) {
+                $employee->remfrm_adt = true;
+            } else {
+                $employee->remfrm_adt = false;
+            }
+
+            if( !empty($remfrm_website) ) {
+                $employee->remfrm_website = true;
+            } else {
+                $employee->remfrm_website = false;
+            }
+            
             $employee->save();
 
             alert()->success('Inactive Employee Edit', 'The record has been edited successfully.');
-            return redirect()->route('employees.index');
+            return redirect()->route('employees.show', ['id' => $employee->id]);
         }
     }
 
