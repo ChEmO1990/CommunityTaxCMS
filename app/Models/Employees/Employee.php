@@ -51,9 +51,10 @@ class Employee extends Model
 	];
 	
 	protected $table = 'employees';
-
+	
 	public function scopeSearch($query, $s) {
-		$temp = $query->where('employees.name', 'like', '%' .$s. '%');
+		$temp = $query->where('employees.name', 'like', '%' .$s. '%')
+			->orWhere('employees.location', 'like', '%' .$s. '%');
 			info($temp->toSql());
 			return $temp;
 	}

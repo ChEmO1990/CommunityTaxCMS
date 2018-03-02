@@ -27,17 +27,64 @@ class EmployeeController extends Controller
      */
     public function index(Request $request)
     {
-        $input = $request->input('s');
+        $input_s = $request->input('s');
+        $input_status = $request->input('status');
 
-        if(empty($input) ) {
+        if(empty($input_s)) {
+            switch($input_status) {
+            case 'active': 
+                $employees = Employee::where('status', 1)->paginate(20);
+                return view('employee.index', compact('employees', 'input_status'))
+                    ->with('page_title', 'List of Employees')
+                    ->with('page_description', 'You can see all employees');
+            break;
+
+            case 'inactive': 
+                $employees = Employee::where('status', 0)->paginate(20);
+                return view('employee.index', compact('employees', 'input_status'))
+                    ->with('page_title', 'List of Telephone Numbers')
+                    ->with('page_description', 'You can create, remove and edit any number phone.');
+            break;
+
+            case 'Chicago': 
+                $employees = Employee::where('location', 'Chicago')->paginate(20);
+                return view('employee.index', compact('employees', 'input_status'))
+                    ->with('page_title', 'List of Telephone Numbers')
+                    ->with('page_description', 'You can create, remove and edit any number phone.');
+            break;
+
+            case 'Cancun': 
+                $employees = Employee::where('location', 'Cancun')->paginate(20);
+                return view('employee.index', compact('employees', 'input_status'))
+                    ->with('page_title', 'List of Telephone Numbers')
+                    ->with('page_description', 'You can create, remove and edit any number phone.');
+            break;
+
+            case 'Puerto Rico': 
+                $employees = Employee::where('location', 'Puerto Rico')->paginate(20);
+                return view('employee.index', compact('employees', 'input_status'))
+                    ->with('page_title', 'List of Telephone Numbers')
+                    ->with('page_description', 'You can create, remove and edit any number phone.');
+            break;
+
+            case 'reset': 
+                $employees = Employee::where('location', 'Puerto Rico')->paginate(20);
+                return view('employee.index', compact('employees'))
+                    ->with('page_title', 'List of Telephone Numbers')
+                    ->with('page_description', 'You can create, remove and edit any number phone.');
+            break;
+
+            default:
             $employees = Employee::paginate(20);
-            return view('employee.index', compact('employees'))->with('page_title', 'List of Employees')
-            ->with('page_description', 'You can see all employees.');
+                return view('employee.index', compact('employees'))
+                    ->with('page_title', 'List of Telephone Numbers')
+                    ->with('page_description', 'You can create, remove and edit any number phone.');
+        }
         } else {
             $employees = Employee::latest()
-            ->search($input)
+            ->search($input_s)
             ->paginate(20);
-            return view('employee.index', compact('employees', 'input'))->with('page_title', 'List of Employees')
+            return view('employee.index', compact('employees', 'input_s'))->with('page_title', 'List of Employees')
             ->with('page_description', 'You can see all employees.');
         }
     }
