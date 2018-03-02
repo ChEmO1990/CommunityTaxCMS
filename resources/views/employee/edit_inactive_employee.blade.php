@@ -274,7 +274,12 @@
     <!-- this row will not appear when printing -->
     <div class="row no-print">
       <div class="col-xs-12">
-        <button type="submit" class="btn btn-primary pull-right" style="margin-right: 5px;">Save Information</button>
+        <button type="submit" class="btn btn-primary pull-right">Save Information</button>
+
+        <a href="{{ route('employees.index') }}">
+          <button type="button" class="btn btn-danger pull-right" style="margin-right: 5px;">Cancel</button>
+        </a>
+
       </div>
     </div>
     {!! Form::hidden('_method', 'PUT') !!}
