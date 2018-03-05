@@ -10,39 +10,41 @@
 	.resp-image { max-width: 100%; height: auto; } 
 	.noborder{ border:none; }
 	.headertekst{ text-align: center; }
+    .headertop{ text-align: top; }
+    .content > div > span{
+      display:inline-block;
+      width:20%; /* or choose some other value */
+  }
+  table {
+      table-layout: fixed;
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px;
+  }
 
-	table {
-		table-layout: fixed;
-		width: 100%;
-		border-collapse: collapse;
-		cellspacing: 0; 
-		cellpadding: 0;
-		border: 1px;
-	}
+  tr.noBorder td {
+      border: 0;
+  }
 
-	tr.noBorder td {
-		border: 0;
-	}
+  thead th:nth-child(1) {
+      width: 30%;
+  }
 
-	thead th:nth-child(1) {
-		width: 30%;
-	}
+  thead th:nth-child(2) {
+      width: 20%;
+  }
 
-	thead th:nth-child(2) {
-		width: 20%;
-	}
+  thead th:nth-child(3) {
+      width: 15%;
+  }
 
-	thead th:nth-child(3) {
-		width: 15%;
-	}
+  thead th:nth-child(4) {
+      width: 35%;
+  }
 
-	thead th:nth-child(4) {
-		width: 35%;
-	}
-
-	th, td {
-		padding: 2px;
-	}
+  th, td {
+      padding: 2px;
+  }
 </style>
 
 </head>
@@ -78,25 +80,22 @@
 	<table class="tg">
 		<tbody>
 			<tr>
-				<td rowspan="3">
-					<h3><u>USERNAMES AND PASSWORDS</u></h3>
-					<h4>(THIS INFORMATION IS CONFIDENTIAL)</h4>
-					<b><u>Network Account</u><b/>
-						<b>Username: {{ $employee->network_account}} <b/>
-							<b>Password: {{ $employee->accounts
-								->where('employee_id', $employee->id)
-								->where('type_account', 'Personal Account')->get('user_name') }}
-								<b/> <br/>
-							</td>
-							<td>Domain: CTR</td>
-						</tr>
-						<tr>
-							<td>Upon First Login use:</td>
-						</tr>
-						<tr>
-							<td>Username: anhernandez <br/> Password: Ctaxit17!</td>
-						</tr>
-					</tbody>
-				</table>
-			</body>
-			</html>
+				<td rowspan="3" width="70%" valign="top">
+                    <b margin: 25px 50px;><u>USERNAMES AND PASSWORDS</u></b><br/>
+                    <b>(THIS INFORMATION IS CONFIDENTIAL)</b><br/><br/>
+                    <b><u>Network Account</u><b/><br/>
+                        <b>Username: {{ $employee->network_account }} <b/><br/>
+                        <b>Password: {{ $employee->accounts->where('employee_id', $employee->id)->where('type_account', 'Personal Account')->get('password') }} <b/><br/>
+                </td>
+                <td>Domain: CTR</td>
+            </tr>
+            <tr>
+               <td>Upon First Login use:</td>
+           </tr>
+           <tr>
+               <td>Username: anhernandez <br/> Password: Ctaxit17!</td>
+           </tr>
+       </tbody>
+   </table>
+</body>
+</html>
