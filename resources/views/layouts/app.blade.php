@@ -111,5 +111,13 @@ desired effect
 <script src="https://cdn.jsdelivr.net/sweetalert2/5.3.5/sweetalert2.min.js"></script>
 <!-- Sweet Alert -->
 @include('Alerts::alerts')
+@php
+  session()->forget('flash_message.title');
+  session()->forget('flash_message.message');
+  session()->forget('flash_message.type');
+  session()->forget('flash_message_overlay.title');
+  session()->forget('flash_message_overlay.message');
+  session()->forget('flash_message_overlay.type');
+@endphp
 </body>
 </html>
