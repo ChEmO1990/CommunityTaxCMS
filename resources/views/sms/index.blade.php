@@ -48,12 +48,16 @@
                     <td>{{ $sms->sms_number}} </td>
                     <td>{{ $sms->comment}} </td>
                     <td>
-                        {!! Form::model($sms, ['method' => 'delete', 'route' => ['sms.destroy', $sms->id], 'class' =>'pull-right  form-delete']) !!}
+
+                        {!! Form::model($sms, ['method' => 'delete', 'route' => ['sms.destroy', $sms->id], 'class' =>'pull-left form-delete']) !!}
                         {!! Form::hidden('id', $sms->id) !!}
-                        {!! Form::submit(trans('Delete'), ['class' => 'btn btn-danger btn-sm', 'name' => 'delete_modal']) !!}
+                        {!! Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs'] )  !!}
                         {!! Form::close() !!}
-                        {{ link_to_route('sms.edit', 'Edit', [$sms->id], ['class'=>'pull-right btn btn-primary btn-sm']) }}
-                    </td>
+
+                        &nbsp;
+                        <a href="{{ route('sms.edit',['id' => $sms->id]) }}">
+                            <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                        </a>
                 <tr>
                     @endforeach
         </table>
