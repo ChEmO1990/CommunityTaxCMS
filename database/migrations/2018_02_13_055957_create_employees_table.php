@@ -19,6 +19,7 @@ class CreateEmployeesTable extends Migration
             $table->string('name');
             $table->string('network_account');
             $table->string('email');
+            $table->string('manager');
             $table->string('clone_account');
             $table->string('location');
             $table->string('job_title');

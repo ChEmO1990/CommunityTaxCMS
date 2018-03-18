@@ -30,10 +30,15 @@
         </div>
 
         <div class="form-group">
-            {!! Form::label('clone_account', 'Manager Account Name') !!} 
+            {!! Form::label('clone_account', 'Clone Account') !!} 
             {!! Form::text('clone_account', null, ['class'=>'form-control']) !!}  
         </div>
 
+        <div class="form-group">
+            {!! Form::label('manager', 'Manager') !!} 
+            {!! Form::text('manager', null, ['class'=>'form-control']) !!}  
+        </div>
+        
         <div class="form-group">
             <label>Location</label>
             <select class="form-control" name="location">

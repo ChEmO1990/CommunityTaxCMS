@@ -111,6 +111,7 @@ class EmployeeController extends Controller
         $name = $request['name'];
         $network_account = $request['network_account'];
         $email = $request['email'];
+        $manager = $request['manager'];
         $clone_account = $request['clone_account'];
         $location = $request['location'];
         $job_title = $request['job_title'];
@@ -133,6 +134,7 @@ class EmployeeController extends Controller
         $employee->name = $name;
         $employee->network_account = $network_account;
         $employee->email = $email;
+        $employee->manager = $manager;
         $employee->clone_account = $clone_account;
         $employee->location = $location;
         $employee->job_title = $job_title;
@@ -347,6 +349,7 @@ class EmployeeController extends Controller
         $rules = [ 
             'network_account' => 'required', 
             'email'  => 'required', 
+            'manager'  => 'required', 
             'clone_account' => 'required',
             'location' => 'required',
             'job_title' => 'required',
@@ -357,6 +360,7 @@ class EmployeeController extends Controller
 
         $network_account = $request['network_account'];
         $email = $request['email'];
+        $manager = $request['manager'];
         $clone_account = $request['clone_account'];
         $location = $request['location'];
         $job_title = $request['job_title'];
@@ -400,6 +404,7 @@ class EmployeeController extends Controller
         //We save the information
             $employee->network_account = $network_account;
             $employee->email = $email;
+            $employee->manager = $manager;
             $employee->clone_account = $clone_account;
             $employee->location = $location;
             $employee->job_title = $job_title;
@@ -519,6 +524,7 @@ class EmployeeController extends Controller
         } else {
             $employee->network_account = $network_account;
             $employee->email = $email;
+            $employee->manager = $manager;
             $employee->clone_account = $clone_account;
             $employee->location = $location;
             $employee->job_title = $job_title;

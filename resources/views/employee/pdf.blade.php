@@ -155,11 +155,11 @@
             </tr>
             <tr>
               <td style="width: 20%; padding-left: 5px; height: 23px;"><b>Username:</b></td>
-              <td style="width: 30%; padding-left: 5px; height: 23px;"><b>{{ $employee->ext }}</b></td>
+              <td style="width: 30%; padding-left: 5px; height: 23px;"><b>{{ $employee->network_account }}</b></td>
             </tr>
             <tr>
               <td style="width: 20%; padding-left: 5px; height: 23px;"><b>Password:</b></td>
-              <td style="width: 30%; padding-left: 5px; height: 23px;"><b>{{ $employee->ext }} &nbsp;&nbsp; (Please note the upper case "C")</b></td>
+              <td style="width: 30%; padding-left: 5px; height: 23px;"><b> {{ $employee->accounts->where('employee_id', $employee->id)->where('type_account', 'Hylafax')->first()->password }} &nbsp;&nbsp; (Please note the upper case "C")</b></td>
             </tr>
           </tbody>
         </table>

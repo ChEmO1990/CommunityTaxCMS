@@ -12,6 +12,7 @@ class Employee extends Model
 		'name', 
 		'network_account',
 		'email',
+		'manager',
 		'clone_account',
 		'location',
 		'job_title',
