@@ -36,6 +36,11 @@
         {!! Form::text('email', $employee->email, ['class'=>'form-control']) !!}  
       </div>
 
+       <div class="form-group">
+          {!! Form::label('manager', 'Manager') !!} 
+          {!! Form::label('manager', $employee->manager, ['class'=>'form-control']) !!}  
+        </div>
+
       <div class="form-group">
         {!! Form::label('clone_account', 'Clone Account') !!} 
         {!! Form::text('clone_account', $employee->clone_account, ['class'=>'form-control']) !!}  
