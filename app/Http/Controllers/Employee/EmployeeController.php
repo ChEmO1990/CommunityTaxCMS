@@ -68,14 +68,14 @@ class EmployeeController extends Controller
             break;
 
             case 'reset': 
-                $employees = Employee::where('location', 'Puerto Rico')->paginate(20);
+                $employees = Employee::where('status', 1)->paginate(20);
                 return view('employee.index', compact('employees'))
                     ->with('page_title', 'Employees')
                     ->with('page_description', '');
             break;
 
             default:
-            $employees = Employee::paginate(20);
+            $employees = Employee::where('status', 1)->paginate(20);
                 return view('employee.index', compact('employees'))
                     ->with('page_title', 'Employees')
                     ->with('page_description', '');
