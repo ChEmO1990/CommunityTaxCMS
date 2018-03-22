@@ -16,6 +16,7 @@ class Account extends Model
 	const TYPE_DOCSTAR_ACCOUNT = 'DocStar';
 	
 	const DEFAULT_PASSWORD = 'Ctaxit17!';
+	const DEFAULT_3CLOGICS_PASSWORD = '3c2017$$$';
 	const DEFAULT_PASSWORD_SPARK = '5555';
 
 	protected $fillable = ['type_account', 'user_name', 'password', 'status'];

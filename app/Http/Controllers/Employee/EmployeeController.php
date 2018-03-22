@@ -174,16 +174,12 @@ class EmployeeController extends Controller
             $logics3c_account->employee_id = $employee->id;
             $logics3c_account->type_account = Account::TYPE_3CLOGICS_ACCOUNT;
             $logics3c_account->user_name = str_replace(' ', '', $name);
-            $logics3c_account->password = Account::DEFAULT_PASSWORD;
+            $logics3c_account->password = Account::DEFAULT_3CLOGICS_PASSWORD;
             $logics3c_account->save();
         } else {
             $employee->clogics_account = false;
-            $logics3c_account = new Account();
-            $logics3c_account->employee_id = $employee->id;
-            $logics3c_account->type_account = Account::TYPE_3CLOGICS_ACCOUNT;
-            $logics3c_account->save();
         }
-
+        
         //Logics Account
         if( !empty($logics) ) {
             $employee->logics_account = true;
