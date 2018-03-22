@@ -22,7 +22,7 @@
         <!-- Optionally, you can add icons to the links -->
           <li class="{{ Request::is('dashboard')? "active":""}}"><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
 
-          <li class="{{ Request::is('sms')? "active":""}}"><a href="{{ route('sms.index') }}"><i class="fa  fa-phone"></i> <span>Telephone numbers</span></a></li>
+          <li class="{{ Request::is('sms')? "active":""}}"><a href="{{ route('sms.index') }}"><i class="fa  fa-phone"></i> <span>SMS Numbers</span></a></li>
 
           <li class="{{ Request::is('employees')? "active":""}}"><a href="{{ route('employees.index') }}"><i class="fa fa-users"></i> <span>Employees</span></a></li>
 
