@@ -37,6 +37,7 @@
                         <th>Email</th>
                         <th>Job Title</th>
                         <th>Location</th>
+                        <th>DID</th>
                         <th>Extension</th>
                         <th>Action</th>
                         <tr>
@@ -56,6 +57,7 @@
                                 <td>{{ $employee->email}} </td>
                                 <td>{{ $employee->job_title}} </td>
                                 <td>{{ $employee->location}} </td>
+                                <td>{{ $employee->did}} </td>
                                 <td>{{ $employee->ext}} </td>
                                 <td>
                                     <a href="{{ action('Download\DownloadController@downloadPDF', $employee->id) }}">PDF</a>
