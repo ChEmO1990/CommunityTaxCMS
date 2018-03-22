@@ -170,16 +170,16 @@
           <tbody style="border-top:none; border-left: none;">
             <tr>
               <td style="width: 20%; padding-left: 5px; height: 23px;"><b><u>Get Help (Computer)</u><b/></td>
-              <td style="width: 50%; padding-left: 5px; height: 23px;"><a href="#">http://ctaxrelief.zendesk.com</a></td>
+              <td style="width: 50%; padding-left: 5px; height: 23px;"></td>
               <td style="border:1px black solid; width: 30%; padding-left: 5px;" rowspan="3"><p class="headertop">Zendesk is our help desk website</p></td>
             </tr>
             <tr>
-              <td style="width: 20%; padding-left: 5px; height: 23px;"><b>Username:</b></td>
-              <td style="width: 30%; padding-left: 5px; height: 23px;"><b>Please create your own login & password</b></td>
+              <td style="width: 20%; padding-left: 5px; height: 23px;"></td>
+              <td style="width: 30%; padding-left: 5px; height: 23px;"></td>
             </tr>
             <tr>
               <td style="width: 20%; padding-left: 5px; height: 23px;"></td>
-              <td style="width: 30%; padding-left: 5px; height: 23px;"><b>OR email helpdesk@communitytax.com to generate a ticket</b></td>
+              <td style="width: 30%; padding-left: 5px; height: 23px;"><b>Send email to helpdesk@communitytax.com to generate a ticket</b></td>
             </tr>
           </tbody>
         </table>
@@ -196,6 +196,56 @@
             <tr>
               <td style="width: 20%; padding-left: 5px; height: 23px;"><b>Username:</b></td>
               <td style="width: 30%; padding-left: 5px; height: 23px;"><b>{{ $employee->network_account }}</b></td>
+            </tr>
+            <tr>
+              <td style="width: 20%; padding-left: 5px; height: 23px;"><b>Password:</b></td>
+              <td style="width: 30%; padding-left: 5px; height: 23px;"><b>{{ $employee->accounts->where('employee_id', $employee->id)->where('type_account', 'PhoneSystem')->first()->password }}</b></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <br/>
+
+        @php
+        if( $employee->accounts
+                      ->where('employee_id', $employee->id)
+                      ->where('type_account', '3CLogics')
+                      ->first() != null) 
+        {
+          $username = $employee->accounts->where('employee_id', $employee->id)->where('type_account', '3CLogics')->first()->user_name;
+          $password = $employee->accounts->where('employee_id', $employee->id)->where('type_account', '3CLogics')->first()->password;
+
+          echo '<table cellpadding="-2" style="border:1px black solid; border-top: none; border-left: none; font-family:Arial, sans-serif;font-size:10px;">';
+          echo '<tbody style="border-top:none; border-left: none;">';
+          echo '<tr>';
+          echo '<td style="width: 20%; padding-left: 5px; height: 23px;"><b><u>3CLogics</u><b/></td>';
+          echo '<td style="width: 50%; padding-left: 5px; height: 23px;"><a href="#"> https://mycallcenter.3ccloud.com </a></td>';
+          echo '<td style="border:1px black solid; width: 30%; padding-left: 5px;" rowspan="3"><p class="headertop">3CLogics is our Cloud Call Center.</p></td>';
+          echo '</tr>';
+          echo '<tr>';
+          echo '<td style="width: 20%; padding-left: 5px; height: 23px;"><b>Username:</b></td>';
+          echo '<td style="width: 30%; padding-left: 5px; height: 23px;"><b>' . $username . '</b></td>';
+          echo '</tr>';
+          echo '<tr>';
+          echo '<td style="width: 20%; padding-left: 5px; height: 23px;"><b>Password:</b></td>';
+          echo '<td style="width: 30%; padding-left: 5px; height: 23px;"><b>' . $password . '</b></td>';
+          echo '</tr>';
+          echo '</tbody>';
+          echo '</table>';
+          echo '<br/>';
+        }
+        @endphp
+
+        <table cellpadding="-2" style="border:1px black solid; border-top: none; border-left: none; font-family:Arial, sans-serif;font-size:10px;">
+          <tbody style="border-top:none; border-left: none;">
+            <tr>
+              <td style="width: 20%; padding-left: 5px; height: 23px;"><b><u>DocStar</u><b/></td>
+              <td style="width: 50%; padding-left: 5px; height: 23px;"><a href="#"> http://eclipse.docstar.com</a></td>
+              <td style="border:1px black solid; width: 30%; padding-left: 5px;" rowspan="3"><p class="headertop">DocStar is our Document Management.</p></td>
+            </tr>
+            <tr>
+              <td style="width: 20%; padding-left: 5px; height: 23px;"><b>Username:</b></td>
+              <td style="width: 30%; padding-left: 5px; height: 23px;"><b>{{ $employee->email }}</b></td>
             </tr>
             <tr>
               <td style="width: 20%; padding-left: 5px; height: 23px;"><b>Password:</b></td>
