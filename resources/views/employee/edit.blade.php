@@ -38,7 +38,7 @@
 
        <div class="form-group">
           {!! Form::label('manager', 'Manager') !!} 
-          {!! Form::label('manager', $employee->manager, ['class'=>'form-control']) !!}  
+          {!! Form::text('manager', $employee->manager, ['class'=>'form-control']) !!}  
         </div>
 
       <div class="form-group">
