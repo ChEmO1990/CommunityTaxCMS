@@ -39,6 +39,6 @@ class DashboardController extends Controller
         ->with(compact('active_employees'))
         ->with(compact('inactive_employees'))
         ->with('page_title', 'Database Summary')
-        ->with('page_description', 'You can see a brief summary of our records');
+        ->with('page_description', '');
     }
 }

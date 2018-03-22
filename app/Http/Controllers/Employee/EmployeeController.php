@@ -35,57 +35,57 @@ class EmployeeController extends Controller
             case 'active': 
                 $employees = Employee::where('status', 1)->paginate(20);
                 return view('employee.index', compact('employees', 'input_status'))
-                    ->with('page_title', 'List of Employees')
-                    ->with('page_description', 'You can see all employees');
+                    ->with('page_title', 'Employees')
+                    ->with('page_description', '');
             break;
 
             case 'inactive': 
                 $employees = Employee::where('status', 0)->paginate(20);
                 return view('employee.index', compact('employees', 'input_status'))
-                    ->with('page_title', 'List of Telephone Numbers')
-                    ->with('page_description', 'You can create, remove and edit any number phone.');
+                    ->with('page_title', 'Employees')
+                    ->with('page_description', '');
             break;
 
             case 'Chicago': 
                 $employees = Employee::where('location', 'Chicago')->paginate(20);
                 return view('employee.index', compact('employees', 'input_status'))
-                    ->with('page_title', 'List of Telephone Numbers')
-                    ->with('page_description', 'You can create, remove and edit any number phone.');
+                    ->with('page_title', 'Employees')
+                    ->with('page_description', '');
             break;
 
             case 'Cancun': 
                 $employees = Employee::where('location', 'Cancun')->paginate(20);
                 return view('employee.index', compact('employees', 'input_status'))
-                    ->with('page_title', 'List of Telephone Numbers')
-                    ->with('page_description', 'You can create, remove and edit any number phone.');
+                    ->with('page_title', 'Employees')
+                    ->with('page_description', '');
             break;
 
             case 'Puerto Rico': 
                 $employees = Employee::where('location', 'Puerto Rico')->paginate(20);
                 return view('employee.index', compact('employees', 'input_status'))
-                    ->with('page_title', 'List of Telephone Numbers')
-                    ->with('page_description', 'You can create, remove and edit any number phone.');
+                    ->with('page_title', 'Employees')
+                    ->with('page_description', '');
             break;
 
             case 'reset': 
                 $employees = Employee::where('location', 'Puerto Rico')->paginate(20);
                 return view('employee.index', compact('employees'))
-                    ->with('page_title', 'List of Telephone Numbers')
-                    ->with('page_description', 'You can create, remove and edit any number phone.');
+                    ->with('page_title', 'Employees')
+                    ->with('page_description', '');
             break;
 
             default:
             $employees = Employee::paginate(20);
                 return view('employee.index', compact('employees'))
-                    ->with('page_title', 'List of Telephone Numbers')
-                    ->with('page_description', 'You can create, remove and edit any number phone.');
+                    ->with('page_title', 'Employees')
+                    ->with('page_description', '');
         }
         } else {
             $employees = Employee::latest()
             ->search($input_s)
             ->paginate(20);
-            return view('employee.index', compact('employees', 'input_s'))->with('page_title', 'List of Employees')
-            ->with('page_description', 'You can see all employees.');
+            return view('employee.index', compact('employees', 'input_s'))->with('page_title', 'Employees')
+            ->with('page_description', '.');
         }
     }
 
@@ -96,8 +96,8 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('employee.new_hire')->with('page_title', 'Create New Employee')
-        ->with('page_description', 'This section let you create a new employee.');
+        return view('employee.new_hire')->with('page_title', 'Create Employee')
+        ->with('page_description', '');
     }
 
     /**

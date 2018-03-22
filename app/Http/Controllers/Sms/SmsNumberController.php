@@ -37,36 +37,36 @@ class SmsNumberController extends Controller
                 $my_list = SmsNumber::where('status', 1)
                 ->paginate(20);
                 return view('sms.index', compact('my_list', 'input_status'))
-                    ->with('page_title', 'List of Telephone Numbers')
-                    ->with('page_description', 'You can create, remove and edit any number phone.');
+                    ->with('page_title', 'SMS Numbers')
+                    ->with('page_description', '');
             break;
 
             case 'notavailable': 
                 $my_list = SmsNumber::where('status', 0)
                 ->paginate(20);
                 return view('sms.index', compact('my_list', 'input_status'))
-                    ->with('page_title', 'List of Telephone Numbers')
-                    ->with('page_description', 'You can create, remove and edit any number phone.');
+                    ->with('page_title', 'SMS Numbers')
+                    ->with('page_description', '');
             break;
 
             case 'reset': 
                 $my_list = SmsNumber::paginate(20);
-            return view('sms.index', compact('my_list'))->with('page_title', 'List of Telephone Numbers')
-                                         ->with('page_description', 'You can create, remove and edit any number phone.');
+            return view('sms.index', compact('my_list'))->with('page_title', 'SMS Numbers')
+                                         ->with('page_description', '');
             break;
 
             default:
             $my_list = SmsNumber::paginate(20);
-            return view('sms.index', compact('my_list'))->with('page_title', 'List of Telephone Numbers')
-                                         ->with('page_description', 'You can create, remove and edit any number phone.');
+            return view('sms.index', compact('my_list'))->with('page_title', 'SMS Numbers')
+                                         ->with('page_description', '');
 
         }
         } else {
             $my_list = SmsNumber::latest()
             ->search($input_s)
             ->paginate(20);
-            return view('sms.index', compact('my_list', 'input'))->with('page_title', 'List of Telephone Numbers')
-                                         ->with('page_description', 'You can create, remove and edit any number phone.');
+            return view('sms.index', compact('my_list', 'input'))->with('page_title', 'SMS Numbers')
+                                         ->with('page_description', '');
         }
     }
 
@@ -77,7 +77,7 @@ class SmsNumberController extends Controller
      */
     public function create()
     {
-        return view('sms.create')->with('page_title', 'Create Phone Number')
+        return view('sms.create')->with('page_title', 'Create SMS Number')
                                          ->with('page_description', '');
     }
 
@@ -118,7 +118,7 @@ class SmsNumberController extends Controller
     public function edit($id)
     {
         $sms = SmsNumber::find($id);
-        return view('sms.edit')->with('sms', $sms)->with('page_title', 'Edit phone number information')
+        return view('sms.edit')->with('sms', $sms)->with('page_title', 'Edit SMS Number Information')
                                          ->with('page_description', '');
     }
 
