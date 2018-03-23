@@ -12,21 +12,22 @@
   </div>
   @endif
   <div class="box box-primary">
-    <div class="panel-body">
+    <div class="panel-body" id="app">
         {!! Form::open(array('route'=>'employees.store')) !!}
+
         <div class="form-group">
             {!! Form::label('name', 'Full Name') !!} 
             {!! Form::text('name', null, ['class'=>'form-control']) !!}  
         </div>
 
         <div class="form-group">
-            {!! Form::label('network_account', 'Network Account') !!} 
-            {!! Form::text('network_account', null, ['class'=>'form-control']) !!}  
+            <label for="name">Network Account</label> 
+            <input class="form-control" name="network_account" type="text" id="network_account" v-model="network_account" >  
         </div>
 
         <div class="form-group">
-            {!! Form::label('email', 'Email') !!} 
-            {!! Form::email('email', null, ['class'=>'form-control']) !!}  
+            <label for="name">Email</label> 
+            <input class="form-control" name="email" type="text" :value="autocomplete_email">  
         </div>
 
         <div class="form-group">
@@ -153,5 +154,24 @@
 </div>
 <!-- /.box -->
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: function(){
+            return {
+                network_account: '',
+                to_email: '@communitytax.com'
+            };
+        },
+
+        computed: {
+            autocomplete_email: function() {
+                return (this.network_account) + (this.to_email);
+            }
+        }
+    });
+</script>
 <!-- /.content -->
 @endsection
