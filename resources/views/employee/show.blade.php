@@ -255,7 +255,7 @@
                         <tr>  
                           <td>Run Script</td>
                           <td>
-                            @if($employee->remfrm_website === 1)
+                            @if($employee->run_script === 1)
                               <span class="label label-success">Checked</span>
                             @else
                               <span class="label label-danger">Not Checked</span>
