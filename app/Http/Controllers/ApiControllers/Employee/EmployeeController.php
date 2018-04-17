@@ -14,7 +14,7 @@ class EmployeeController extends ApiController
      */
     public function index()
     {
-        $employees = Employee::all();
+        $employees = Employee::all()->where('status', 1);
         return $this->showAll($employees);
     }
 

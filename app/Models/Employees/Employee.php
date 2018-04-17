@@ -4,9 +4,12 @@ namespace App\Models\Employees;
 
 use App\Models\Accounts\Account;
 use Illuminate\Database\Eloquent\Model;
+use App\Transformers\EmployeeTransformer;
 
 class Employee extends Model
 {
+	public $transformer = EmployeeTransformer::class;
+
 	protected $fillable = [
 		'id',
 		'name', 
