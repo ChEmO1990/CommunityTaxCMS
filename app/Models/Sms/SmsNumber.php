@@ -3,10 +3,13 @@
 namespace App\Models\Sms;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Transformers\SmsNumberTransformer;
 
 class SmsNumber extends Model
 {
-	protected $fillable = ['sms_number', 'assign_to', 'comment'];
+	public $transformer = SmsNumberTransformer::class;
+	
+	protected $fillable = ['id', 'sms_number', 'assign_to', 'comment', 'status'];
 	protected $table = 'sms_numbers';
 
 	public function scopeSearch($query, $s) {
