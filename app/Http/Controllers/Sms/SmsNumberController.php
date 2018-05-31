@@ -118,8 +118,9 @@ class SmsNumberController extends Controller
     public function edit($id)
     {
         $sms = SmsNumber::find($id);
-        return view('sms.edit')->with('sms', $sms)->with('page_title', 'Edit SMS Number Information')
-                                         ->with('page_description', '');
+        return view('sms.edit')->with('sms', $sms)
+                               ->with('page_title', 'Edit SMS Number Information')
+                               ->with('page_description', '');
     }
 
     /**

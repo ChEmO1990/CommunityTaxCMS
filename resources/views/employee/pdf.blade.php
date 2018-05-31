@@ -78,7 +78,7 @@
           </tbody>
         </table>
 
-        <br/>
+        
 
         @if( !empty($employee->accounts
           ->where('employee_id', $employee->id)
@@ -104,8 +104,6 @@
           </table>
           @endif
 
-          <br/>
-
           <table cellpadding="-2" style="border:1px black solid; border-top: none; border-left: none; font-family:Arial, sans-serif;font-size:10px;">
             <tbody style="border-top:none; border-left: none;">
               <tr>
@@ -127,7 +125,7 @@
             </tbody>
           </table>
 
-          <br/>
+
 
           @if( !empty($employee->accounts
             ->where('employee_id', $employee->id)
@@ -155,8 +153,6 @@
               </table>
               @endif
 
-              <br/>
-
               @if( !empty($employee->accounts
                 ->where('employee_id', $employee->id)
                 ->where('type_account', 'Hylafax')
@@ -180,8 +176,6 @@
                   </table>
                   @endif
 
-                  <br/>
-
                   <table cellpadding="-2" style="border:1px black solid; border-top: none; border-left: none; font-family:Arial, sans-serif;font-size:10px;">
                     <tbody style="border-top:none; border-left: none;">
                       <tr>
@@ -199,8 +193,6 @@
                         </tr>
                       </tbody>
                     </table>
-
-                    <br/>
 
                     @if( !empty($employee->accounts
                       ->where('employee_id', $employee->id)
@@ -224,8 +216,6 @@
                           </tbody>
                         </table>
                         @endif
-
-                        <br/>
 
                         @php
                         if( $employee->accounts
@@ -253,7 +243,6 @@
                           echo '</tr>';
                           echo '</tbody>';
                           echo '</table>';
-                          echo '<br/>';
                         }
                         @endphp
 
@@ -281,8 +270,6 @@
                             </table>
                             @endif
 
-                            <br/>
-
                             <table cellpadding="-2" style="border:1px black solid; border-top: none; border-left: none; font-family:Arial, sans-serif;font-size:10px;">
                               <tbody style="border-top:none; border-left: none;">
                                 <tr>
@@ -293,6 +280,28 @@
                                   <tr>
                                     <td style="width: 20%; padding-left: 5px; height: 23px;"></td>
                                     <td style="width: 30%; padding-left: 5px; height: 23px;"><b>You will receive an email from HR with instructions on registering</b></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+
+                              <table style="border: 1px black solid; border-top: none; border-left: none; font-family: Arial, sans-serif; font-size: 10px;" cellpadding="-2">
+                                <tbody style="border-top: none; border-left: none;">
+                                  <tr>
+                                    <td style="width: 20%; padding-left: 5px; height: 23px;"><strong><u>Steps</u></strong></td>
+                                    <td style="width: 50%; padding-left: 5px; height: 23px;">
+                                      <br>
+                                      1.- Please dial *97 in your phone <br>
+                                      2.- Then press 0 and listen all the options <br>
+                                      3.- Press 1 to record your unavailable message <br>
+                                      4.- Press 2 to record your busy message <br>
+                                      5.- Press 3 to record your Name <br>
+                                      6.- Press 4 to record your temporally greeting <br>
+                                      7.- Record your message <br>
+                                      8.- Press # to save the changes <br> <br>
+                                    </td>
+                                    <td style="border: 1px black solid; width: 30%; padding-left: 5px;">
+                                      <p class="headertop">Instructions for set up the voice mail in Soft phones and Desk phones</p>
+                                    </td>
                                   </tr>
                                 </tbody>
                               </table>
