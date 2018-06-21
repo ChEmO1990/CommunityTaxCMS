@@ -340,7 +340,6 @@ class EmployeeController extends Controller
     public function update(Request $request, $id)
     {
         $employee = Employee::find($id);
-        $accounts = Employee::find($id)->accounts;
 
         $rules = [ 
             'network_account' => 'required', 
@@ -488,19 +487,19 @@ class EmployeeController extends Controller
             ->update(['user_name' => $username0,'password' => $password0]);
 
             Account::where('employee_id', $id)
-            ->where('type_account', Account::TYPE_3CLOGICS_ACCOUNT)
+            ->where('type_account', Account::TYPE_OUTLOOK_ACCOUNT)
             ->update(['user_name' => $username1,'password' => $password1]);
 
             Account::where('employee_id', $id)
-            ->where('type_account', Account::TYPE_LOGICS_ACCOUNT)
+            ->where('type_account', Account::TYPE_PHONESYSTEM_ACCOUNT)
             ->update(['user_name' => $username2,'password' => $password2]);
 
             Account::where('employee_id', $id)
-            ->where('type_account', Account::TYPE_OUTLOOK_ACCOUNT)
+            ->where('type_account', Account::TYPE_3CLOGICS_ACCOUNT)
             ->update(['user_name' => $username3,'password' => $password3]);
 
             Account::where('employee_id', $id)
-            ->where('type_account', Account::TYPE_SPARK_ACCOUNT)
+            ->where('type_account', Account::TYPE_LOGICS_ACCOUNT)
             ->update(['user_name' => $username4,'password' => $password4]);
 
             Account::where('employee_id', $id)
@@ -508,7 +507,7 @@ class EmployeeController extends Controller
             ->update(['user_name' => $username5,'password' => $password5]);
 
             Account::where('employee_id', $id)
-            ->where('type_account', Account::TYPE_PHONESYSTEM_ACCOUNT)
+            ->where('type_account', Account::TYPE_SPARK_ACCOUNT)
             ->update(['user_name' => $username6,'password' => $password6]);
 
             Account::where('employee_id', $id)
@@ -635,8 +634,7 @@ class EmployeeController extends Controller
             
             $employee->save();
 
-            alert()->success('Inactive Employee Edit', 'The record has been edited successfully.');
-            return redirect()->route('employees.show', ['id' => $employee->id]);
+            echo $username7;
         }
     }
 

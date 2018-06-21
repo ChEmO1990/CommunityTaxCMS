@@ -1,8 +1,4 @@
 <?php
-
-use App\Models\Sms\SmsNumber;
-use App\Models\Accounts\Account;
-use App\Models\Employees\Employee;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,4 +18,3 @@ Route::resource('employees', 'Employee\EmployeeController', ['except' => ['edit'
 Route::get('employees/edit/{id}/{termination}', ['as' => 'employees.edit', 'uses' => 'Employee\EmployeeController@edit']);
 Route::get('employees/download/{id}', 'Download\DownloadController@downloadPDF')->middleware('auth');
 Route::get('employees/termination/{id}', 'Employee\EmployeeController@termination')->middleware('auth');
-
