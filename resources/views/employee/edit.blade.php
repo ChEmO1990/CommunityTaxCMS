@@ -86,7 +86,7 @@
                 <th>Username</th>
                 <th>Password</th>
                 <tr>
-                  @foreach($accounts as $key=>$account)
+                  @foreach( $accounts as $key=> $account )
                   <tr>  
                     <td> {{ $account->type_account }} </td>
                     <td> {!! Form::text('username'.$key, $account->user_name, ['class'=>'form-control']) !!} </td>
