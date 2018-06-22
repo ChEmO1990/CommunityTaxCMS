@@ -32,54 +32,54 @@ class EmployeeController extends Controller
 
         if(empty($input_s)) {
             switch($input_status) {
-            case 'active': 
+                case 'active': 
                 $employees = Employee::where('status', 1)->paginate(20);
                 return view('employee.index', compact('employees', 'input_status'))
-                    ->with('page_title', 'Employees')
-                    ->with('page_description', '');
-            break;
+                ->with('page_title', 'Employees')
+                ->with('page_description', '');
+                break;
 
-            case 'inactive': 
+                case 'inactive': 
                 $employees = Employee::where('status', 0)->paginate(20);
                 return view('employee.index', compact('employees', 'input_status'))
-                    ->with('page_title', 'Employees')
-                    ->with('page_description', '');
-            break;
+                ->with('page_title', 'Employees')
+                ->with('page_description', '');
+                break;
 
-            case 'Chicago': 
+                case 'Chicago': 
                 $employees = Employee::where('location', 'Chicago')->paginate(20);
                 return view('employee.index', compact('employees', 'input_status'))
-                    ->with('page_title', 'Employees')
-                    ->with('page_description', '');
-            break;
+                ->with('page_title', 'Employees')
+                ->with('page_description', '');
+                break;
 
-            case 'Cancun': 
+                case 'Cancun': 
                 $employees = Employee::where('location', 'Cancun')->paginate(20);
                 return view('employee.index', compact('employees', 'input_status'))
-                    ->with('page_title', 'Employees')
-                    ->with('page_description', '');
-            break;
+                ->with('page_title', 'Employees')
+                ->with('page_description', '');
+                break;
 
-            case 'Puerto Rico': 
+                case 'Puerto Rico': 
                 $employees = Employee::where('location', 'Puerto Rico')->paginate(20);
                 return view('employee.index', compact('employees', 'input_status'))
-                    ->with('page_title', 'Employees')
-                    ->with('page_description', '');
-            break;
+                ->with('page_title', 'Employees')
+                ->with('page_description', '');
+                break;
 
-            case 'reset': 
+                case 'reset': 
                 $employees = Employee::where('status', 1)->paginate(20);
                 return view('employee.index', compact('employees'))
-                    ->with('page_title', 'Employees')
-                    ->with('page_description', '');
-            break;
+                ->with('page_title', 'Employees')
+                ->with('page_description', '');
+                break;
 
-            default:
-            $employees = Employee::where('status', 1)->paginate(20);
+                default:
+                $employees = Employee::where('status', 1)->paginate(20);
                 return view('employee.index', compact('employees'))
-                    ->with('page_title', 'Employees')
-                    ->with('page_description', '');
-        }
+                ->with('page_title', 'Employees')
+                ->with('page_description', '');
+            }
         } else {
             $employees = Employee::latest()
             ->search($input_s)
@@ -340,6 +340,7 @@ class EmployeeController extends Controller
     public function update(Request $request, $id)
     {
         $employee = Employee::find($id);
+        $accounts = Employee::find($id)->accounts;
 
         $rules = [ 
             'network_account' => 'required', 
@@ -407,115 +408,120 @@ class EmployeeController extends Controller
             $employee->ext = $ext;
 
             //We check checkbox current status
-        if( !empty($clogics_account) ) {
-            $employee->clogics_account = true;
-        } else {
-            $employee->clogics_account = false;
-        }
+            if( !empty($clogics_account) ) {
+                $employee->clogics_account = true;
+            } else {
+                $employee->clogics_account = false;
+            }
 
-        if( !empty($logics_account) ) {
-            $employee->logics_account = true;
-        } else {
-            $employee->logics_account = false;
-        }
+            if( !empty($logics_account) ) {
+                $employee->logics_account = true;
+            } else {
+                $employee->logics_account = false;
+            }
 
-        if( !empty($assign_logics_sms) ) {
-            $employee->assign_logics_sms = true;
-        } else {
-            $employee->assign_logics_sms = false;
-        }
+            if( !empty($assign_logics_sms) ) {
+                $employee->assign_logics_sms = true;
+            } else {
+                $employee->assign_logics_sms = false;
+            }
 
-        if( !empty($tax_preparer_udfid) ) {
-            $employee->tax_preparer_udfid = true;
-        } else {
-            $employee->tax_preparer_udfid = false;
-        }
+            if( !empty($tax_preparer_udfid) ) {
+                $employee->tax_preparer_udfid = true;
+            } else {
+                $employee->tax_preparer_udfid = false;
+            }
 
-        if( !empty($tax_preparers_eas) ) {
-            $employee->tax_preparers_eas = true;
-        } else {
-            $employee->tax_preparers_eas = false;
-        }
+            if( !empty($tax_preparers_eas) ) {
+                $employee->tax_preparers_eas = true;
+            } else {
+                $employee->tax_preparers_eas = false;
+            }
 
-        if( !empty($ifax_account) ) {
-            $employee->ifax_account = true;
-        } else {
-            $employee->ifax_account = false;
-        }
+            if( !empty($ifax_account) ) {
+                $employee->ifax_account = true;
+            } else {
+                $employee->ifax_account = false;
+            }
 
-        if( !empty($spark_account) ) {
-            $employee->spark_account = true;
-        } else {
-            $employee->spark_account = false;
-        }
+            if( !empty($spark_account) ) {
+                $employee->spark_account = true;
+            } else {
+                $employee->spark_account = false;
+            }
 
-        if( !empty($ds_account) ) {
-            $employee->ds_account = true;
-        } else {
-            $employee->ds_account = false;
-        }
+            if( !empty($ds_account) ) {
+                $employee->ds_account = true;
+            } else {
+                $employee->ds_account = false;
+            }
 
-        if( !empty($user_to_scanner) ) {
-            $employee->user_to_scanner = true;
-        } else {
-            $employee->user_to_scanner = false;
-        }
+            if( !empty($user_to_scanner) ) {
+                $employee->user_to_scanner = true;
+            } else {
+                $employee->user_to_scanner = false;
+            }
 
-        $employee->save();
+            $employee->save();
 
-        //Get parameters from foreach view Manually
-            $username0 = $request['username0'];
-            $username1 = $request['username1'];
-            $username2 = $request['username2'];
-            $username3 = $request['username3'];
-            $username4 = $request['username4'];
-            $username5 = $request['username5'];
-            $username6 = $request['username6'];
-            $username7 = $request['username7'];
+            foreach ($accounts as $key => $account) {
+                $username = $request['username'. $key];
+                $password = $request['password'. $key];
 
-            $password0 = $request['password0'];
-            $password1 = $request['password1'];
-            $password2 = $request['password2'];
-            $password3 = $request['password3'];
-            $password4 = $request['password4'];
-            $password5 = $request['password5'];
-            $password6 = $request['password6'];
-            $password7 = $request['password7'];
+                switch ($account->type_account) {
+                    case 'Personal Account':
+                    Account::where('employee_id', $id)
+                    ->where('type_account', Account::TYPE_PERSONAL_ACCOUNT)
+                    ->update(['user_name' => $username,'password' => $password]);
+                    break;
 
-            Account::where('employee_id', $id)
-            ->where('type_account', Account::TYPE_PERSONAL_ACCOUNT)
-            ->update(['user_name' => $username0,'password' => $password0]);
+                    case 'Email':
+                    Account::where('employee_id', $id)
+                    ->where('type_account', Account::TYPE_OUTLOOK_ACCOUNT)
+                    ->update(['user_name' => $username,'password' => $password]);
+                    break;
 
-            Account::where('employee_id', $id)
-            ->where('type_account', Account::TYPE_OUTLOOK_ACCOUNT)
-            ->update(['user_name' => $username1,'password' => $password1]);
+                    case 'PhoneSystem':
+                    Account::where('employee_id', $id)
+                    ->where('type_account', Account::TYPE_PHONESYSTEM_ACCOUNT)
+                    ->update(['user_name' => $username,'password' => $password]);
+                    break;
 
-            Account::where('employee_id', $id)
-            ->where('type_account', Account::TYPE_PHONESYSTEM_ACCOUNT)
-            ->update(['user_name' => $username2,'password' => $password2]);
+                    case '3CLogics':
+                    Account::where('employee_id', $id)
+                    ->where('type_account', Account::TYPE_3CLOGICS_ACCOUNT)
+                    ->update(['user_name' => $username,'password' => $password]);
+                    break;
 
-            Account::where('employee_id', $id)
-            ->where('type_account', Account::TYPE_3CLOGICS_ACCOUNT)
-            ->update(['user_name' => $username3,'password' => $password3]);
+                    case 'Logics':
+                    Account::where('employee_id', $id)
+                    ->where('type_account', Account::TYPE_LOGICS_ACCOUNT)
+                    ->update(['user_name' => $username,'password' => $password]);
+                    break;
 
-            Account::where('employee_id', $id)
-            ->where('type_account', Account::TYPE_LOGICS_ACCOUNT)
-            ->update(['user_name' => $username4,'password' => $password4]);
+                    case 'Hylafax':
+                    Account::where('employee_id', $id)
+                    ->where('type_account', Account::TYPE_HYLAFAX_ACCOUNT)
+                    ->update(['user_name' => $username,'password' => $password]);
+                    break;
 
-            Account::where('employee_id', $id)
-            ->where('type_account', Account::TYPE_HYLAFAX_ACCOUNT)
-            ->update(['user_name' => $username5,'password' => $password5]);
+                    case 'Spark':
+                    Account::where('employee_id', $id)
+                    ->where('type_account', Account::TYPE_SPARK_ACCOUNT)
+                    ->update(['user_name' => $username,'password' => $password]);
+                    break;
 
-            Account::where('employee_id', $id)
-            ->where('type_account', Account::TYPE_SPARK_ACCOUNT)
-            ->update(['user_name' => $username6,'password' => $password6]);
-
-            Account::where('employee_id', $id)
-            ->where('type_account', Account::TYPE_DOCSTAR_ACCOUNT)
-            ->update(['user_name' => $username7,'password' => $password7]);
+                    case 'DocStar':
+                    Account::where('employee_id', $id)
+                    ->where('type_account', Account::TYPE_DOCSTAR_ACCOUNT)
+                    ->update(['user_name' => $username,'password' => $password]);
+                    break;
+                }
+            }
 
             alert()->success('Active Employee Edit', 'The record has been edited successfully.');
             return redirect()->route('employees.show', ['id' => $employee->id]);
+
         } else {
             $employee->network_account = $network_account;
             $employee->email = $email;
@@ -634,7 +640,8 @@ class EmployeeController extends Controller
             
             $employee->save();
 
-            echo $username7;
+            alert()->success('Inactive Employee Edit', 'The record has been edited successfully.');
+            return redirect()->route('employees.show', ['id' => $employee->id]);
         }
     }
 
