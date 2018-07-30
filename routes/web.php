@@ -21,8 +21,6 @@ Route::get('employees/edit/{id}/{termination}', ['as' => 'employees.edit', 'uses
 Route::get('employees/download/{id}', 'Download\DownloadController@downloadPDF')->middleware('auth');
 Route::get('employees/termination/{id}', 'Employee\EmployeeController@termination')->middleware('auth');
 
-
-
 Route::get('/test', function()
 {
 	$beautymail = app()->make(Snowfire\Beautymail\Beautymail::class);
