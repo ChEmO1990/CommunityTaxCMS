@@ -2,16 +2,16 @@
 
 @section('content')
 
-    @include ('beautymail::templates.sunny.heading' , [
+    @include ('beautymail::templates.minty.heading' , [
         'heading' => 'Hello!',
         'level' => 'h1',
     ])
 
-    @include('beautymail::templates.sunny.contentStart')
+    @include('beautymail::templates.minty.contentStart')
 
         <p>Today will be a great day!</p>
 
-    @include('beautymail::templates.sunny.contentEnd')
+    @include('beautymail::templates.minty.contentEnd')
 
     @include('beautymail::templates.minty.button', [
         	'title' => 'Click me',
