@@ -167,6 +167,8 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Infinety\Alerts\AlertServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        Snowfire\Beautymail\BeautymailServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
