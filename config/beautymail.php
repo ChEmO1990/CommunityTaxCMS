@@ -24,7 +24,7 @@ return [
         'address'     => null,
 
         'logo'        => [
-            'path'   => '/public/adminlte/img/community_small_logo.png',
+            'path'   => '%PUBLIC%/vendor/beautymail/assets/images/communitytax/logo.png',
             'width'  => '',
             'height' => '',
         ],
