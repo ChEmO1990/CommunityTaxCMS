@@ -24,7 +24,7 @@ return [
         'address'     => null,
 
         'logo'        => [
-            'path'   => 'img/logo.png',
+            'path'   => {!! Html::image('img/logo.png') !!},
             'width'  => '',
             'height' => '',
         ],
