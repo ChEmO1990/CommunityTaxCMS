@@ -31,5 +31,4 @@ Route::get('/test', function()
 			->to('chemo.baza@gmail.com', 'John Smith')
 			->subject('Welcome!');
     });
-
 });
