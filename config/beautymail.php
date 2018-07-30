@@ -24,7 +24,7 @@ return [
         'address'     => null,
 
         'logo'        => [
-            'path'   => '/adminlte/img/community_small_logo.png',
+            'path'   => '/public/adminlte/img/community_small_logo.png',
             'width'  => '',
             'height' => '',
         ],
