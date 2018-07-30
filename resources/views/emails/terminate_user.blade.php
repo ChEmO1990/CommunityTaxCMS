@@ -13,7 +13,7 @@
 
     @include('beautymail::templates.sunny.contentEnd')
 
-    @include('beautymail::templates.sunny.button', [
+    @include('beautymail::templates.minty.button', [
         	'title' => 'Click me',
         	'link' => 'http://google.com'
     ])
